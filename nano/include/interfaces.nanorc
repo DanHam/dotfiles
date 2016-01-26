@@ -1,0 +1,16 @@
+## Basic syntax highlighting for generic configuration files.
+##
+syntax "interfaces" "\.?interfaces$"
+## Symbols
+color brightred "(=|,)"
+## Keywords - Main
+icolor green "\<(auto|iface|inet|address|netmask|network|broadcast|vlan-raw-device|manual|static|dhcp)\>"
+## Keywords - Bonding
+icolor yellow "\<(slaves|bond-mode|bond-miimon|bond-downdelay|bond-updelay)\>"
+## Keywords - DNS
+icolor red "\<(dns-nameservers|dns-search)\>"
+## Strings
+icolor white ""(\\.|[^"])*""
+## Comments
+icolor brightblue "^[[:space:]]*#.*$"
+icolor cyan "^[[:space:]]*##.*$"

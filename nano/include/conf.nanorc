@@ -1,0 +1,10 @@
+## Basic syntax highlighting for generic configuration files.
+##
+syntax "Conf" "(\.conf$|\.properties$|\.cnf$|\.cfg$)"
+## Symbols
+color brightred "(=|,)"
+## Strings
+icolor white ""(\\.|[^"])*""
+## Comments
+icolor brightblue "^[[:space:]]*#.*$"
+icolor cyan "^[[:space:]]*##.*$"

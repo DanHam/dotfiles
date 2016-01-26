@@ -1,0 +1,29 @@
+## Here is an example for Python.
+
+syntax "python" "\.py$"
+header "^#!.*python[-0-9._]*"
+linter pyflakes
+
+# Function definitions.
+icolor brightblue "def [0-9A-Z_]+"
+# Keywords.
+color brightblue "\<(and|as|assert|break|class|continue|def|del|elif|else|except|exec|finally|for|from)\>"
+color brightblue "\<(global|if|import|in|is|lambda|not|or|pass|print|raise|return|try|while|with|yield)\>"
+
+# Maths Symbols
+color red "(\+|-|\*|/|%|<|>|<=|>=)"
+
+# Single-quoted strings.
+color green "'([^'\]|\\.)+'"
+color green ""([^"\]|\\.)+""
+# Comments.
+color brightblack "(^|[[:blank:]])#.*$"
+# Triple-quoted strings.
+color brightgreen start="'''[^'),]" end="(^|[^(\])'''"
+color brightgreen start="\"\"\"[^"),]" end="(^|[^(\])\"\"\""
+
+# Reminders.
+color ,yellow "(FIXME|TODO|XXX)"
+
+# Trailing whitespace.
+color ,green "[[:space:]]+$"

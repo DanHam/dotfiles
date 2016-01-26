@@ -1,0 +1,21 @@
+## Syntax highlighting for vb scripts.
+##
+syntax "vbs" "\.vbs$"
+## Keywords - Variables
+icolor brightblack "\<(bool.*|str.*)\>"
+## Keywords - Objects,col
+color red "\<(^| |obj.*| |$|^| |col.*| |$)\>"
+## Symbols
+color brightred "(&|=|\(|\)|\"|,)"
+## Keywords - Main
+icolor brightblue "\<(dim|call|private|function|end function|ubound|set|createobject|getobject)\>"
+## Keywords - Loops and Conditionals
+icolor brightyellow "\<(for|each|in|next|exit|if|then|end if|else|or|and|true|false)\>"
+## Line continue
+icolor brightcyan "\<(vbnewline|_$)\>"
+## Strings
+icolor white ""(\\.|[^"])*""
+## Comments
+icolor green "^[[:space:]]*'.*$"
+## Trailing Spaces
+color ,green "[[:space:]]+$"
