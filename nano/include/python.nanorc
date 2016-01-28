@@ -7,8 +7,9 @@ linter pyflakes
 # Function definitions.
 icolor brightblue "def [0-9A-Z_]+"
 # Keywords.
-color cyan "\<(and|as|assert|break|class|continue|def|del|elif|else|except|exec|finally|for|from)\>"
-color cyan "\<(global|if|import|in|is|lambda|not|or|pass|print|raise|return|try|while|with|yield)\>"
+color cyan "\<(and|as|assert|break|class|continue|def|del|elif|else|except)\>"
+color cyan "\<(exec|finally|for|from|global|if|import|in|is|lambda|not|or)\>"
+color cyan "\<(pass|print|raise|return|try|while|with|yield)\>"
 
 # Maths Symbols
 color red "(\+|-|\*|/|%|<|>|<=|>=)"
@@ -19,8 +20,8 @@ color blue ""([^"\]|\\.)+""
 # Comments.
 color brightblack "(^|[[:blank:]])#.*$"
 # Triple-quoted strings.
-color brightgreen start="'''[^'),]" end="(^|[^(\])'''"
-color brightgreen start="\"\"\"[^"),]" end="(^|[^(\])\"\"\""
+color blue start="'''" end="'''"
+color blue start=""""" end="""""
 
 # Reminders.
 color ,yellow "(FIXME|TODO|XXX)"
