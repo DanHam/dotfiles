@@ -25,3 +25,6 @@ alias ircs='irssi --config=~/.irssi/irssi.conf --connect=irc.spotchat.org --nick
 alias sl='ls'
 # sudo safety
 alias sudo='A=`alias` sudo '
+# Git
+alias gs='git status'
+alias gl='git log'
