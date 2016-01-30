@@ -18,9 +18,6 @@ alias grep='grep --colour=auto'
 alias minicom='minicom --wrap --color=on'
 alias valgrind='valgrind --track-origins=yes'
 #alias l='ls -CF'
-#alias irc='bitchx -Af -n danand irc.freenode.net'
-alias ircf='irssi --config=~/.irssi/irssi.conf --connect=irc.freenode.net --nick=danand --password=********'
-alias ircs='irssi --config=~/.irssi/irssi.conf --connect=irc.spotchat.org --nick=danand'
 # Just because I hate the recommendation to install sl...
 alias sl='ls'
 # sudo safety
