@@ -11,8 +11,10 @@ color cyan "\<(and|as|assert|break|class|continue|def|del|elif|else|except)\>"
 color cyan "\<(exec|finally|for|from|global|if|import|in|is|lambda|not|or)\>"
 color cyan "\<(pass|print|raise|return|try|while|with|yield)\>"
 
-# Maths Symbols
-color red "(\+|-|\*|/|%|<|>|<=|>=)"
+# Maths Symbols and Operators
+color red "(\+|-|\*|/|%|<|>|<=|>=|==)"
+# Parenthesis
+color yellow "(\(|\)|\[|\])"
 
 # Single-quoted strings.
 color blue "'([^'\]|\\.)+'"

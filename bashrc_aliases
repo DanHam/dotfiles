@@ -2,7 +2,7 @@
 alias c='clear'
 alias hidehist='history -d $((HISTCMD-2))'
 alias a2ps='a2ps -1 --font-size=12.0 --margin=40 -B --borders=no'
-alias bpython='bpython --config=~/.bpython/config.conf'
+alias bpython='bpython --config=~/.config/bpython/config.conf'
 alias cnano='nano -T 2'
 alias less='less -Rr'
 alias tree='tree -AC'
