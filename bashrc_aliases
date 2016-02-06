@@ -25,4 +25,5 @@ alias sudo='A=`alias` sudo '
 alias gs='git status'
 alias gl='git log'
 alias ga='git add'
-
+alias gc='git commit'
+alias gp='git push'
