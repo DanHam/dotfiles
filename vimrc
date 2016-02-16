@@ -35,7 +35,7 @@ set ruler           " Show the cursor position all the time
 set laststatus=2    " Use 2 lines for the status bar
 set showmode        " Show the mode in the status bar (insert/replace...)
 
-set title           " Show filename in terminal titlebar
+set notitle         " Do not show filename in terminal titlebar
 set backspace=indent,eol,start " Backspacing over everything in insert mode
 set whichwrap+=>,l  " At the end of a line move to beggining of the next
                     " when moving the cursor
