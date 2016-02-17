@@ -27,7 +27,7 @@ set shiftwidth=4    " Spaces for autoindents
 set expandtab       " Turn tabs into spaces
 set number          " Always show line numbers
 set nowrap          " Deactivate wrapping
-set textwidth=79    " Text auto breaks after 79 characters
+set textwidth=75    " Text auto breaks after 75 characters
 set modeline        " Enable modeline
 
 set wildmenu        " Show zsh like menu for tab autocompletes
@@ -42,7 +42,6 @@ set whichwrap+=>,l  " At the end of a line move to beggining of the next
 set whichwrap+=<,h  " At the start of a line move to end of the previous
                     " when moving the cursor
 set scrolloff=5     " Keep at least 5 lines above/below the cursor
-set sidescrolloff=5 " Keep at least 5 columns left/right of cursor
 
 set autoread        " Watch for file changes by other programs
 set autowrite       " Write current buffer when running :make
