@@ -34,6 +34,7 @@ set wildmenu        " Show zsh like menu for tab autocompletes
 set ruler           " Show the cursor position all the time
 set laststatus=2    " Use 2 lines for the status bar
 set showmode        " Show the mode in the status bar (insert/replace...)
+set clipboard=unnamed " y and p copy/paste interaction with OS X clipboard
 
 set notitle         " Do not show filename in terminal titlebar
 set backspace=indent,eol,start " Backspacing over everything in insert mode
