@@ -4,6 +4,8 @@
 "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+filetype off
+
 " When started as "evim", evim.vim will already have done these settings.
 if v:progname =~? "evim"
   finish
@@ -29,6 +31,7 @@ set number          " Always show line numbers
 set nowrap          " Deactivate wrapping
 set textwidth=75    " Text auto breaks after 75 characters
 set modeline        " Enable modeline
+set encoding=utf-8  " Set default encoding
 
 set wildmenu        " Show zsh like menu for tab autocompletes
 set ruler           " Show the cursor position all the time
@@ -119,6 +122,21 @@ endif
 " User commands
 " --------------------------------------------------------------------------
 
+" Rebind <Leader> key
+let mapleader = ","
+
+" Fast switching between tabs
+map <Leader>n <esc>:tabprevious<CR>
+map <Leader>m <esc>:tabnext<CR>
+
+" Sort function
+vnoremap <Leader>s :sort<CR>
+
+" Easier moving of highlighted code blocks in visual mode - This prevents
+" loss of visual highlight on change of indent
+vnoremap < <gv
+vnoremap > >gv
+
 " Don't use Ex mode, use Q for formatting
 map Q gq
 
@@ -157,6 +175,9 @@ if has("autocmd")
 
   " For all text files set 'textwidth' to 78 characters.
   autocmd FileType text setlocal textwidth=78
+
+  " Set to automatically reload .vimrc when changes are made to it
+  autocmd! bufwritepost .vimrc source %
 
   " When editing a file, always jump to the last known cursor position.
   " Don't do it when the position is invalid or when inside an event handler
@@ -267,6 +288,30 @@ let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
 "
 
+" supertab:
+"       - https://github.com/ervandew/supertab.git
+"       - Supertab is a vim plugin which allows you to use <Tab> for all
+"         your insert completion needs (:help ins-completion).
+"
+" Code completion SuperTab config
+let g:SuperTabDefaultCompletionType = "context"
+" Use always c-x c-o -> not c-n
+let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
+
+" nerdcommenter
+"       - https://github.com/scrooloose/nerdcommenter.git
+"       - Vim plugin for intensely orgasmic commenting
+"
+" Set to insert spaces after left comment delimiter and before right comment
+" delimiter e.g. /* With Spaces */ as opposed to /*Without Spaces*/
+let g:NERDSpaceDelims = 1
+" Set to remove extra spaces when we uncomment a line
+let g:NERDRemoveExtraSpaces = 1
+" ...but not when editing a python file where this behaviour seems to be
+" automatic!! There has to be a nicer way of doing this!
+autocmd FileType python let g:NERDSpaceDelims = 0
+autocmd FileType python let g:NERDRemoveExtraSpaces = 0
+"
 
 " --------------------------------------------------------------------------
 " Local overrides of main Vim Theme
