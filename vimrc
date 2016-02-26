@@ -117,13 +117,37 @@ if &t_Co > 2 || has("gui_running")
   set hlsearch
 endif
 
+" --------------------------------------------------------------------------
+" Folding
+" --------------------------------------------------------------------------
+
+if has('folding')
+    setlocal foldmethod=indent     " Folding works by aligning with indents
+    setlocal foldlevel=99          " Auto folding occurs for folds above num
+    setlocal foldnestmax=5         " Allow this many folds within folds
+    setlocal foldcolumn=1          " Display a column for folding
+    setlocal foldignore=none       " Don't ignore # when folding
+endif
 
 " --------------------------------------------------------------------------
 " User commands
 " --------------------------------------------------------------------------
 
+" My fingers cant seem to lift off the shift key after typing a :
+command! Q      q
+command! W      w
+command! Wq     wq
+command! WQ     wq
+
 " Rebind <Leader> key
 let mapleader = ","
+
+" Quick toggle of folds
+nnoremap <space> za
+vnoremap <space> za
+" Quick unfold of nested folds
+nnoremap <Leader><space> zA
+vnoremap <Leader><space> zA
 
 " Fast switching between tabs
 map <Leader>n <esc>:tabprevious<CR>
@@ -303,15 +327,31 @@ let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
 "       - Vim plugin for intensely orgasmic commenting
 "
 " Set to insert spaces after left comment delimiter and before right comment
-" delimiter e.g. /* With Spaces */ as opposed to /*Without Spaces*/
-let g:NERDSpaceDelims = 1
-" Set to remove extra spaces when we uncomment a line
-let g:NERDRemoveExtraSpaces = 1
-" ...but not when editing a python file where this behaviour seems to be
-" automatic!! There has to be a nicer way of doing this!
-autocmd FileType python let g:NERDSpaceDelims = 0
-autocmd FileType python let g:NERDRemoveExtraSpaces = 0
-"
+" delimiter e.g. /* With Spaces */ as opposed to /*Without Spaces*/ and
+" conversely set to remove extra spaces when we uncomment a line... but not
+" when editing a python file where this behaviour seems to be automatic!!
+if has("autocmd")
+    autocmd Filetype *
+            \   if &ft != "python" |
+            \       let g:NERDSpaceDelims = 1 |
+            \       let g:NERDRemoveExtraSpaces = 1 |
+            \   endif
+endif
+
+" --------------------------------------------------------------------------
+" Language settings
+" --------------------------------------------------------------------------
+
+" Set up auto completion with omnifunc. This will set up completion only if
+" a specific plugin does not exist for a filetype.
+" Note that the jedi plugin will set omnifunc to jedi#completions for us if
+" it handles the filetype
+if has("autocmd") && exists("+omnifunc")
+    autocmd Filetype *
+            \	if &omnifunc == "" |
+            \		setlocal omnifunc=syntaxcomplete#Complete |
+            \	endif
+endif
 
 " --------------------------------------------------------------------------
 " Local overrides of main Vim Theme
@@ -323,7 +363,30 @@ autocmd FileType python let g:NERDRemoveExtraSpaces = 0
 " Set to highlight whitespace in green rather than the default red
 hi ExtraWhitespace ctermbg=green
 
+" Highlight current selection in omnicomplete popup menu
+hi PMenuSel ctermfg=green ctermbg=236
 
+" Create a (faint grey) ruler at column 80
+if exists('+colorcolumn')
+    set colorcolumn=80
+    hi colorcolumn ctermfg=none ctermbg=232
+endif
+
+" Set colours for folding
+if has('folding')
+    " Set colour for the fold text
+    hi folded ctermfg=22 ctermbg=none
+    " Set colour for the fold column
+    hi foldcolumn ctermfg=22 ctermbg=none
+endif
+
+" Highlight current line
+set cursorline
+" Adjust colours for the line itself and line number highlighting
+hi CursorLine cterm=none ctermbg=none
+hi CursorLineNr ctermfg=245 ctermbg=none
+
+"
 " Set a custom highlight group for use with the statusline
 if &t_Co>2 && &t_Co<=16
     " For basic color terminals
