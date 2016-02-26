@@ -142,6 +142,9 @@ command! WQ     wq
 " Rebind <Leader> key
 let mapleader = ","
 
+" Map sort function to key
+vnoremap <Leader>s :sort<CR>
+
 " Quick toggle of folds
 nnoremap <space> za
 vnoremap <space> za
@@ -149,12 +152,9 @@ vnoremap <space> za
 nnoremap <Leader><space> zA
 vnoremap <Leader><space> zA
 
-" Fast switching between tabs
-map <Leader>n <esc>:tabprevious<CR>
-map <Leader>m <esc>:tabnext<CR>
-
-" Sort function
-vnoremap <Leader>s :sort<CR>
+" Fast switching between buffers
+nnoremap <Leader>n :bp<CR>
+nnoremap <Leader>m :bn<CR>
 
 " Easier moving of highlighted code blocks in visual mode - This prevents
 " loss of visual highlight on change of indent
@@ -174,7 +174,10 @@ map <C-l> 5l
 map <C-p> :set invpaste<CR>
 
 " Show line numbers toggle
-map <C-n> :set invnumber<CR>
+map <Leader>l :set invnumber<CR>
+
+" Toggle NERDTree
+map <C-n> :NERDTreeToggle<CR>
 
 " Y should have the same behaviour as D e.g. yank to end, but instead works
 " like yy. Fix here:
@@ -338,6 +341,17 @@ if has("autocmd")
             \   endif
 endif
 
+" nerdtree
+"       - https://github.com/scrooloose/nerdtree.git
+"       - The NERD tree allows you to explore your filesystem and to open
+"         files and directories.
+"
+" Set mouse click behaviour: single click to open directories, double for
+" files
+let g:NERDTreeMouseMode=2
+" Set to auto close the NERDTree pane when a file is opened
+let g:NERDTreeQuitOnOpen=1
+
 " --------------------------------------------------------------------------
 " Language settings
 " --------------------------------------------------------------------------
@@ -380,13 +394,17 @@ if has('folding')
     hi foldcolumn ctermfg=22 ctermbg=none
 endif
 
+" NERDTree highlighting
+hi NERDTreeDir ctermfg=blue ctermbg=none
+hi NERDTreeCWD ctermfg=grey ctermbg=none
+hi NERDTreeExecFile ctermfg=green ctermbg=none
+
 " Highlight current line
 set cursorline
 " Adjust colours for the line itself and line number highlighting
 hi CursorLine cterm=none ctermbg=none
 hi CursorLineNr ctermfg=245 ctermbg=none
 
-"
 " Set a custom highlight group for use with the statusline
 if &t_Co>2 && &t_Co<=16
     " For basic color terminals

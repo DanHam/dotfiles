@@ -24,7 +24,7 @@ fi
 # Colourisation of terminal output
 if [ "$TERM" != "dumb" ]; then
     export LS_OPTIONS='--color=auto'
-    eval `dircolors ~/.dir_colors`
+    eval $(dircolors -b $HOME/.dir_colors)
 fi
 
 # Import Aliases
