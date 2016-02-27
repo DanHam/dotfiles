@@ -159,7 +159,7 @@ EXEC 01;32
 .vob                    38;5;114
 .wmv                    38;5;114
 # }}}
-# Mobi le/Streaming {{{2
+# Mobile/Streaming {{{2
 .3g2                    38;5;115
 .3gp                    38;5;115
 .asf                    38;5;115
@@ -410,6 +410,8 @@ EXEC 01;32
 .ahk                  38;5;29
 # Python
 .py                   38;5;29
+.doctest              38;5;166
+.rst                  38;5;241
 # Perl
 .pl                   38;5;29
 # SQL
