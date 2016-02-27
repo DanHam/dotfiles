@@ -383,7 +383,7 @@ hi PMenuSel ctermfg=green ctermbg=236
 " Create a (faint grey) ruler at column 80
 if exists('+colorcolumn')
     set colorcolumn=80
-    hi colorcolumn ctermfg=none ctermbg=232
+    hi colorcolumn ctermfg=none ctermbg=233
 endif
 
 " Set colours for folding
