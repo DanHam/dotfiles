@@ -153,8 +153,8 @@ nnoremap <Leader><space> zA
 vnoremap <Leader><space> zA
 
 " Fast switching between buffers
-nnoremap <Leader>n :bp<CR>
-nnoremap <Leader>m :bn<CR>
+nnoremap <Leader>, :bp<CR>
+nnoremap <Leader>. :bn<CR>
 
 " Easier moving of highlighted code blocks in visual mode - This prevents
 " loss of visual highlight on change of indent
