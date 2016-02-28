@@ -176,6 +176,9 @@ map <C-p> :set invpaste<CR>
 " Show line numbers toggle
 map <Leader>l :set invnumber<CR>
 
+" Quick method of dismissing syntastic checks and error
+nnoremap <Leader>e :SyntasticReset<CR>
+
 " Toggle NERDTree
 map <C-n> :NERDTreeToggle<CR>
 
