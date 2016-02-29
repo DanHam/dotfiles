@@ -124,7 +124,7 @@ endif
 if has('folding')
     setlocal foldmethod=indent     " Folding works by aligning with indents
     setlocal foldlevel=99          " Auto folding occurs for folds above num
-    setlocal foldnestmax=5         " Allow this many folds within folds
+    setlocal foldnestmax=10        " Allow this many folds within folds
     setlocal foldcolumn=1          " Display a column for folding
     setlocal foldignore=none       " Don't ignore # when folding
 endif
