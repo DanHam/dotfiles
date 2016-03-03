@@ -386,8 +386,5 @@ settings = {
 };
 hilights = ( { text = "danand"; nick = "yes"; word = "yes"; } );
 ignores = (
-  {
-    level = "JOINS PARTS QUITS";
-    channels = ( "#python", "#ubuntu", "#debian", "#vim" );
-  }
+  { level = "JOINS PARTS QUITS"; }
 );
