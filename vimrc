@@ -252,7 +252,6 @@ if has('langmap') && exists('+langnoremap')
   set langnoremap
 endif
 
-
 " --------------------------------------------------------------------------
 " Plugins settings
 " --------------------------------------------------------------------------
@@ -354,6 +353,14 @@ endif
 let g:NERDTreeMouseMode=2
 " Set to auto close the NERDTree pane when a file is opened
 let g:NERDTreeQuitOnOpen=1
+
+" vim-markdown-folding
+"       - https://github.com/nelstrom/vim-markdown-folding.git
+"       - This plugin enables folding by section headings in markdown
+"         documents.
+"
+" Prefer the nested style of folding; Can be toggled with :FoldToggle.
+let g:markdown_fold_style = 'nested'
 
 " --------------------------------------------------------------------------
 " Language settings
