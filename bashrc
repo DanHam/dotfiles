@@ -38,6 +38,6 @@ if [ -f /opt/local/etc/profile.d/bash_completion.sh ]; then
 fi
 
 # Git Bash Completion
-if [ -f ~/.git-completion.sh ]; then
-    . ~/.git-completion.sh
+if [ -f ~/.git-completion.bash ]; then
+    . ~/.git-completion.bash
 fi
