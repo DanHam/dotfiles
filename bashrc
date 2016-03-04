@@ -1,13 +1,26 @@
 # Mac bashrc file
 
-# Main Bash Options
+# History control
 #
-# Don't put duplicate lines in the history. See bash(1) for more options
-export HISTCONTROL=ignoredups
-# ... and ignore same sucessive entries.
-export HISTCONTROL=ignoreboth
+# Don't put duplicate lines or lines starting with a space in the history
+# Note that erasedups does not work as well as we would hope and some
+# duplicates may appear in the history
+export HISTCONTROL=ignoreboth:erasedups
+# Ignore the following patterns when appending to the history file
+export HISTIGNORE="ls:ll:la:cd**:history**:top:exit:tree**:c:clear"
 # Set ammount of commands to store in history
 export HISTSIZE=20000
+# Synchronise history across multiple sessions;
+# history -a appends the current command to the history file. history -c
+# then clears the history after which history -r reads and updates the
+# current state of the history thereby reading in any changes from other
+# sessions. PROMPT_COMMAND is run prior to the issue of the primary prompt.
+export PROMPT_COMMAND="history -a;history -c;history -r"
+# Avoid overwriting history
+shopt -s histappend
+# Try to save each line of a multi-line command in the same history entry
+shopt -s cmdhist
+
 # Check window size after each command and update LINES and COLUMNS value
 shopt -s checkwinsize
 
@@ -41,3 +54,19 @@ fi
 if [ -f ~/.git-completion.bash ]; then
     . ~/.git-completion.bash
 fi
+
+# Use ssh-agent for per-session caching of ssh keys
+#
+# Start ssh agent and store required environment variables
+if ! $(pgrep -u $USER ssh-agent > /dev/null); then
+    ssh-agent > $HOME/.ssh-agent-info 2>&1>/dev/null
+fi
+# Set required environment variables from stored info
+if [[ "$SSH_AGENT_PID" == '' ]]; then
+    # Read in from file grepping out the annoying echo command and
+    # evaluate to set the environment variables
+    eval $(grep -v echo <$HOME/.ssh-agent-info)
+fi
+# Wrap an alias around ssh to add the key to the agent on first run of ssh
+ssh-add -l >/dev/null || \
+    alias ssh='ssh-add -l >/dev/null || ssh-add && unalias ssh; ssh'
