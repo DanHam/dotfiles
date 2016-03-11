@@ -359,8 +359,22 @@ let g:NERDTreeQuitOnOpen=1
 "       - This plugin enables folding by section headings in markdown
 "         documents.
 "
-" Prefer the nested style of folding; Can be toggled with :FoldToggle.
+" Prefer the nested style of folding; Can be toggled with :FoldToggle
 let g:markdown_fold_style = 'nested'
+
+" vim-puppet
+"       - https://github.com/rodjek/vim-puppet.git
+"       - Make vim more Puppet friendly!
+"       - Formatting based on Puppetlabs Style Guide
+"       - Syntax highlighting
+"       - Automatic => alignment (when the Tabular plugin is installed)
+"
+
+" Tabular
+"       - https://github.com/godlygeek/tabular.git
+"       - A plugin for automatic alignment of text
+"       - See http://vimcasts.org/episodes/aligning-text-with-tabular-vim/
+"
 
 " --------------------------------------------------------------------------
 " Language settings
