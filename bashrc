@@ -28,7 +28,7 @@ shopt -s checkwinsize
 if [ "$TERM" != "dumb" ]; then
     if [ -e ~/.git-prompt.sh ]; then
         . ~/.git-prompt.sh
-        PS1='\[\033[01;30m\]\u@\h\[\033[01;34m\] \w \[\033[01;33m\]$(__git_ps1 "\n(%s) ")\[\033[01;34m\]\$\[\033[00m\] '
+        PS1='\[\033[01;30m\]\u@\h\[\033[01;34m\] \w \[\033[01;38;5;72m\]$(__git_ps1 "\n(%s) ")\[\033[01;34m\]\$\[\033[0m\] '
     else
         PS1='\[\033[01;30m\]\u@\h\[\033[01;34m\] \w \$\[\033[00m\] '
     fi
@@ -54,6 +54,20 @@ fi
 if [ -f ~/.git-completion.bash ]; then
     . ~/.git-completion.bash
 fi
+
+# Colourisation of man pages
+if [ "$TERM" != "dumb" ]; then
+    export LESS_TERMCAP_mb=$'\e[01;31m'       # begin blinking
+    export LESS_TERMCAP_md=$'\e[01;38;5;74m'  # begin bold
+    export LESS_TERMCAP_me=$'\e[0m'           # end mode
+    export LESS_TERMCAP_so=$'\e[01;30m'       # begin standout-mode - info box
+    export LESS_TERMCAP_se=$'\e[0m'           # end standout-mode
+    export LESS_TERMCAP_us=$'\e[04;38;5;72m'  # begin underline
+    export LESS_TERMCAP_ue=$'\e[0m'           # end underline
+fi
+
+# Use enhancements built around less; See lesspipe(1)
+export LESSOPEN='| /opt/local/bin/lesspipe.sh %s'
 
 # Use ssh-agent for per-session caching of ssh keys
 #
