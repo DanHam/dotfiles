@@ -12,7 +12,7 @@ export PATH=$PATH:~/.bin
 
 # VMware Fusion binaries
 if [ -d "/Applications/VMware Fusion.app/Contents/Library/" ]; then
-    export PATH=$PATH:"/Applications/VMware Fusion.app/Contents/Library/"
+    export PATH=$PATH:"/Applications/VMware Fusion.app/Contents/Library"
 fi
 
 # Bash rc file
