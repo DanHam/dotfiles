@@ -281,7 +281,7 @@ call pathogen#helptags()    " Generate documentation for Plugins
 colorscheme ir_black
 " Let vim know we are using a dark console/transparent with dark background
 set background=dark
-"
+
 " jedi-vim:
 "       - https://github.com/davidhalter/jedi-vim
 "       - Awesome Python autocompletion with VIM
@@ -375,6 +375,15 @@ let g:markdown_fold_style = 'nested'
 "       - A plugin for automatic alignment of text
 "       - See http://vimcasts.org/episodes/aligning-text-with-tabular-vim/
 "
+
+" vim-ruby
+"       - https://github.com/vim-ruby/vim-ruby.git
+"       - Vim configuration files for editing and compiling Ruby within Vim
+
+" vim-endwise
+"       - https://github.com/tpope/vim-endwise.git
+"       - A plugin that helps to end certain structures automatically
+
 
 " --------------------------------------------------------------------------
 " Language settings
