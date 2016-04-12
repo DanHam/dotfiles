@@ -315,7 +315,8 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 0
 " Whether to invoke checkers when we write/quit
 let g:syntastic_check_on_wq = 0
-"
+" Enable rubocop (gem install rubocop) and default mri checkers for ruby
+let g:syntastic_ruby_checkers = ['rubocop', 'mri']
 
 " supertab:
 "       - https://github.com/ervandew/supertab.git
