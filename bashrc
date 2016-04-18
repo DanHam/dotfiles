@@ -84,3 +84,8 @@ fi
 # Wrap an alias around ssh to add the key to the agent on first run of ssh
 ssh-add -l >/dev/null || \
     alias ssh='ssh-add -l >/dev/null || ssh-add && unalias ssh; ssh'
+
+# Set default provider for Vagrant
+if [ -d "/Applications/VMware Fusion.app/" ]; then
+    export VAGRANT_DEFAULT_PROVIDER='vmware_fusion'
+fi
