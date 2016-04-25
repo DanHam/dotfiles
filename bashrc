@@ -7,7 +7,7 @@
 # duplicates may appear in the history
 export HISTCONTROL=ignoreboth:erasedups
 # Ignore the following patterns when appending to the history file
-export HISTIGNORE="ls:ll:la:cd**:history**:top:exit:tree**:c:clear"
+# export HISTIGNORE="ls:ll:la:cd**:history**:top:exit:tree**:c:clear"
 # Set ammount of commands to store in history
 export HISTSIZE=20000
 # Synchronise history across multiple sessions;
