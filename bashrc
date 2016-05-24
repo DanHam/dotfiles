@@ -55,6 +55,12 @@ if [ -f ~/.git-completion.bash ]; then
     . ~/.git-completion.bash
 fi
 
+# AWS CLI Bash Completion
+AWS_COMPLETER="/opt/local/Library/Frameworks/Python.framework/Versions/2.7/bin/aws_completer"
+if [ -e $AWS_COMPLETER ]; then
+    complete -C $AWS_COMPLETER aws
+fi
+
 # Colourisation of man pages
 if [ "$TERM" != "dumb" ]; then
     export LESS_TERMCAP_mb=$'\e[01;31m'       # begin blinking
