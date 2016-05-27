@@ -15,13 +15,6 @@ if [ -d "/Applications/VMware Fusion.app/Contents/Library/" ]; then
     export PATH=$PATH:"/Applications/VMware Fusion.app/Contents/Library"
 fi
 
-# Python 2.7 PIP packages
-PIPBIN27="/opt/local/Library/Frameworks/Python.framework/Versions/2.7/bin"
-if [ -d $PIPBIN27 ]; then
-    export PATH=$PATH:$PIPBIN27
-fi
-
-
 # Bash rc file
 if [ -f ~/.bashrc ]; then
     . ~/.bashrc
