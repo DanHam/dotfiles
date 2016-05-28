@@ -26,8 +26,10 @@ shopt -s checkwinsize
 
 # Prompt
 if [ "$TERM" != "dumb" ]; then
-    if [ -e ~/.git-prompt.sh ]; then
-        . ~/.git-prompt.sh
+    # Set location of the git prompt shell script
+    GIT_PROMPT_SH="/opt/local/share/git/contrib/completion/git-prompt.sh"
+    if [ -e $GIT_PROMPT_SH ]; then
+        . $GIT_PROMPT_SH
         PS1='\[\033[01;30m\]\u@\h\[\033[01;34m\] \w \[\033[01;38;5;66m\]$(__git_ps1 "\n[%s] ")\[\033[01;34m\]\$\[\033[0m\] '
     else
         PS1='\[\033[01;30m\]\u@\h\[\033[01;34m\] \w \$\[\033[00m\] '
@@ -50,9 +52,10 @@ if [ -f /opt/local/etc/profile.d/bash_completion.sh ]; then
     . /opt/local/etc/profile.d/bash_completion.sh
 fi
 
-# Git Bash Completion
-if [ -f ~/.git-completion.bash ]; then
-    . ~/.git-completion.bash
+# Git Bash Completion: Set location of the completions file and source
+GIT_COMPLETIONS="/opt/local/share/git/contrib/completion/git-completion.bash"
+if [ -f $GIT_COMPLETIONS ]; then
+    . $GIT_COMPLETIONS
 fi
 
 # Colourisation of man pages
