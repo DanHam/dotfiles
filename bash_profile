@@ -15,6 +15,14 @@ if [ -d "/Applications/VMware Fusion.app/Contents/Library/" ]; then
     export PATH=$PATH:"/Applications/VMware Fusion.app/Contents/Library"
 fi
 
+# Ruby Environments: rbenv
+if [ -e "/opt/local/bin/rbenv" ]; then
+    export PATH="$HOME/.rbenv/bin:$PATH"
+    if [ -e "/opt/local/bin/ruby-build" ]; then
+        export RUBY_CONFIGURE_OPTS=--with-openssl-dir=/opt/local
+    fi
+fi
+
 # Bash rc file
 if [ -f ~/.bashrc ]; then
     . ~/.bashrc
