@@ -58,6 +58,9 @@ if [ -f $GIT_COMPLETIONS ]; then
     . $GIT_COMPLETIONS
 fi
 
+# Travis CI Bash Completion (added by travis gem)
+[ -f /Users/dan/.travis/travis.sh ] && source /Users/dan/.travis/travis.sh
+
 # Colourisation of man pages
 if [ "$TERM" != "dumb" ]; then
     export LESS_TERMCAP_mb=$'\e[01;31m'       # begin blinking
