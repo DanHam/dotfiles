@@ -447,9 +447,9 @@ if &t_Co>2 && &t_Co<=16
     hi User3 ctermbg=grey ctermfg=red   guibg=grey guifg=red
 elseif &t_Co>16
     " For terminals with 256 color support
-    hi User1 ctermbg=235 ctermfg=208 guibg=235 guifg=208
-    hi User2 ctermbg=235 ctermfg=27  guibg=235 guifg=27
-    hi User3 ctermbg=235 ctermfg=160 guibg=235 guifg=196
+    hi User1 ctermbg=235 ctermfg=208 guibg=#262626 guifg=#ff8700
+    hi User2 ctermbg=235 ctermfg=27  guibg=#262626 guifg=#005fff
+    hi User3 ctermbg=235 ctermfg=160 guibg=#262626 guifg=#d70000
 endif
 
 " Now create the status line
