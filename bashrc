@@ -35,6 +35,7 @@ if [ "$TERM" != "dumb" ]; then
         PS1='\[\033[01;30m\]\u@\h\[\033[01;34m\] \w \$\[\033[00m\] '
     fi
 fi
+unset GIT_PROMPT_SH
 
 # Colourisation of terminal output
 if [ "$TERM" != "dumb" ]; then
@@ -57,9 +58,28 @@ GIT_COMPLETIONS="/opt/local/share/git/contrib/completion/git-completion.bash"
 if [ -f $GIT_COMPLETIONS ]; then
     . $GIT_COMPLETIONS
 fi
+unset GIT_COMPLETIONS
 
 # Travis CI Bash Completion (added by travis gem)
 [ -f /Users/dan/.travis/travis.sh ] && source /Users/dan/.travis/travis.sh
+
+# Vagrant Completions
+BASE_DIR="/opt/vagrant/embedded/gems/gems"
+# Get the latest version of vagrant we have installed on the system
+# We could use 'vagrant --version' here but it's very slow. This is ugly
+# but much quicker
+if [ -d ${BASE_DIR} ]; then
+    LATEST="$(ls ${BASE_DIR} | \
+              grep -P ^vagrant-[0-9]\.[0-9]\.[0-9] | \
+              sort -gr |
+              tr -s '\n' ' ' | \
+              cut -d' ' -f1)"
+fi
+VAGRANT_COMPLETIONS="${BASE_DIR}/${LATEST}/contrib/bash/completion.sh"
+if [ -f ${VAGRANT_COMPLETIONS} ]; then
+  . ${VAGRANT_COMPLETIONS}
+fi
+unset BASE_DIR LATEST VAGRANT_COMPLETIONS
 
 # Colourisation of man pages
 if [ "$TERM" != "dumb" ]; then
