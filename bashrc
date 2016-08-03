@@ -116,11 +116,6 @@ if [ -d "/Applications/VMware Fusion.app/" ]; then
     export VAGRANT_DEFAULT_PROVIDER='vmware_fusion'
 fi
 
-# Set prompt option for Python virtual env
-if [ -e "/opt/local/bin/virtualenv" ]; then
-    export VIRTUAL_ENV_DISABLE_PROMPT='True'
-fi
-
 # Set up rbenv
 if [ -e "/opt/local/bin/rbenv" ]; then
     eval "$(rbenv init -)"
