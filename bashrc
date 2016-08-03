@@ -120,3 +120,19 @@ fi
 if [ -e "/opt/local/bin/rbenv" ]; then
     eval "$(rbenv init -)"
 fi
+
+
+# Functions
+
+# Setup SAWS virtual environment
+sawsup () {
+    if [ -e ~/.saws/bin/activate ] && [ -e ~/.saws/bin/saws ]; then
+        echo "Setting up environment for Super AWS CLI..."
+        source ~/.saws/bin/activate
+        echo "You can now run 'saws'; Use CTRL-D to exit."
+        echo "Run 'deactivate' to close down the environment when done"
+        saws
+    else
+        echo "Virtual env for SAWS not found or SAWS missing: ~/.saws"
+    fi
+}
