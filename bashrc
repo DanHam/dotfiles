@@ -1,5 +1,8 @@
 # Mac bashrc file
 
+# Don't process this file if this is not an interactive session
+[[ -z "${PS1}" ]] && return 0
+
 # History control
 #
 # Don't put duplicate lines or lines starting with a space in the history
