@@ -33,9 +33,9 @@ if [ "$TERM" != "dumb" ]; then
     GIT_PROMPT_SH="/opt/local/share/git/contrib/completion/git-prompt.sh"
     if [ -e $GIT_PROMPT_SH ]; then
         . $GIT_PROMPT_SH
-        PS1='\[\033[01;30m\]\u@\h\[\033[01;34m\] \w \[\033[01;38;5;66m\]$(__git_ps1 "\n[%s] ")\[\033[01;34m\]\$\[\033[0m\] '
+        PS1='\[\033[01;30m\]\u\[\033[01;30m\]@\h\[\033[01;34m\] \w \[\033[01;38;5;66m\]$(__git_ps1 "\n[%s] ")\[\033[01;34m\]\$\[\033[0m\] '
     else
-        PS1='\[\033[01;30m\]\u@\h\[\033[01;34m\] \w \$\[\033[00m\] '
+        PS1='\[\033[01;30m\]\u\[\033[01;30m\]@\h\[\033[01;34m\] \w \$\[\033[00m\] '
     fi
 fi
 unset GIT_PROMPT_SH
@@ -73,12 +73,13 @@ BASE_DIR="/opt/vagrant/embedded/gems/gems"
 # but much quicker
 if [ -d ${BASE_DIR} ]; then
     LATEST="$(ls ${BASE_DIR} | \
-              grep -P ^vagrant-[0-9]\.[0-9]\.[0-9] | \
-              sort -gr |
+        grep -Ex ^vagrant-'([0-9]{1,2}\.[0-9]{1,2}\.[0-9]{1,2})' | \
+              sort -Vr |
               tr -s '\n' ' ' | \
               cut -d' ' -f1)"
 fi
 VAGRANT_COMPLETIONS="${BASE_DIR}/${LATEST}/contrib/bash/completion.sh"
+echo "vagrant completions: ${VAGRANT_COMPLETIONS}"
 if [ -f ${VAGRANT_COMPLETIONS} ]; then
   . ${VAGRANT_COMPLETIONS}
 fi
