@@ -79,7 +79,6 @@ if [ -d ${BASE_DIR} ]; then
               cut -d' ' -f1)"
 fi
 VAGRANT_COMPLETIONS="${BASE_DIR}/${LATEST}/contrib/bash/completion.sh"
-echo "vagrant completions: ${VAGRANT_COMPLETIONS}"
 if [ -f ${VAGRANT_COMPLETIONS} ]; then
   . ${VAGRANT_COMPLETIONS}
 fi
