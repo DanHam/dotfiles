@@ -385,6 +385,20 @@ let g:markdown_fold_style = 'nested'
 "       - https://github.com/tpope/vim-endwise.git
 "       - A plugin that helps to end certain structures automatically
 
+" vim-ansible
+"       - https://github.com/pearofducks/ansible-vim.git
+"       - A VIM syntax plugin for Ansible 2.0
+"       - Supports playbooks, Jinja2 templates and Ansibles host files
+"
+" Highlighting for attributes. Available flags are:
+"   a: highlight all instances of key=
+"   o: highlight only instances of key= found on newlines
+"   d: dim the instances of key= found
+"   b: brighten the instances of key= found
+"   n: turn off this highlight completely
+let g:ansible_attribute_highlight = 'ab'
+" Highlight for additional keywords
+let g:ansible_extra_keywords_highlight = 1
 
 " --------------------------------------------------------------------------
 " Language settings
