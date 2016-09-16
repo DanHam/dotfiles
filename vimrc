@@ -389,6 +389,9 @@ let g:markdown_fold_style = 'nested'
 "       - https://github.com/pearofducks/ansible-vim.git
 "       - A VIM syntax plugin for Ansible 2.0
 "       - Supports playbooks, Jinja2 templates and Ansibles host files
+"       - When the file type is not automatically detected use the
+"         following stanza at the head of the file:
+"         # vim: ft=ansible:
 "
 " Highlighting for attributes. Available flags are:
 "   a: highlight all instances of key=
