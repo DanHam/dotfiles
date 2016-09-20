@@ -120,8 +120,8 @@ if [ -d "/Applications/VMware Fusion.app/" ]; then
 fi
 
 # Set up rbenv
-if [ -e "/opt/local/bin/rbenv" ]; then
-    eval "$(rbenv init -)"
+if [ -e "$HOME/.rbenv/bin/rbenv" ]; then
+    eval "$($HOME/.rbenv/bin/rbenv init -)"
 fi
 
 
@@ -129,13 +129,25 @@ fi
 
 # Setup SAWS virtual environment
 sawsup () {
-    if [ -e ~/.saws/bin/activate ] && [ -e ~/.saws/bin/saws ]; then
+    if [ -e ~/.venv-saws/bin/activate ] && \
+       [ -e ~/.venv-saws/bin/saws ]; then
         echo "Setting up environment for Super AWS CLI..."
-        source ~/.saws/bin/activate
+        source ~/.venv-saws/bin/activate
         echo "You can now run 'saws'; Use CTRL-D to exit."
         echo "Run 'deactivate' to close down the environment when done"
         saws
     else
-        echo "Virtual env for SAWS not found or SAWS missing: ~/.saws"
+        echo "Virtual env for SAWS not found or SAWS missing: ~/.venv-saws"
+    fi
+}
+# Setup Ansible virtual environment
+ansibleup () {
+    if [ -e ~/.venv-ansible/bin/activate ] && \
+       [ -e ~/.venv-ansible/bin/ansible ]; then
+        echo "Setting up environment for Ansible..."
+        source ~/.venv-ansible/bin/activate
+        echo "Run 'deactivate' to close down the environment when done"
+    else
+        echo "Virtual env for Ansible not found or Ansible missing"
     fi
 }
