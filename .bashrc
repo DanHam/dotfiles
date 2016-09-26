@@ -140,14 +140,3 @@ sawsup () {
         echo "Virtual env for SAWS not found or SAWS missing: ~/.venv-saws"
     fi
 }
-# Setup Ansible virtual environment
-ansibleup () {
-    if [ -e ~/.venv-ansible/bin/activate ] && \
-       [ -e ~/.venv-ansible/bin/ansible ]; then
-        echo "Setting up environment for Ansible..."
-        source ~/.venv-ansible/bin/activate
-        echo "Run 'deactivate' to close down the environment when done"
-    else
-        echo "Virtual env for Ansible not found or Ansible missing"
-    fi
-}
