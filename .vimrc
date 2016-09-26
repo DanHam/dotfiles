@@ -403,6 +403,20 @@ let g:ansible_attribute_highlight = 'ab'
 " Highlight for additional keywords
 let g:ansible_extra_keywords_highlight = 1
 
+" vim-terraform
+"       - https://github.com/hashivim/vim-terraform.git
+"       - Adds a :Terraform command that runs terraform, with tab
+"         completion of subcommands
+"       - Sets up *.tf, *.tfvars, and *.tfstate files to be highlighted as
+"         HCL, HCL, and JSON respectively
+"       - Adds a :TerraformFmt command that runs terraform fmt against the
+"         current buffer
+"       - Set g:terraform_fmt_on_save to 1 to run terraform fmt
+"         automatically when saving *.tf or *.tfvars files
+"
+" Run terraform fmt automatically when saving a *.tf or *.tfvars file
+let g:terraform_fmt_on_save = 1
+
 " --------------------------------------------------------------------------
 " Language settings
 " --------------------------------------------------------------------------
