@@ -41,11 +41,12 @@ set clipboard=unnamed " y and p copy/paste interaction with OS X clipboard
 
 set notitle         " Do not show filename in terminal titlebar
 set backspace=indent,eol,start " Backspacing over everything in insert mode
-set whichwrap+=>,l  " At the end of a line move to beggining of the next
+set whichwrap+=>,l  " At the end of a line move to beginning of the next
                     " when moving the cursor
 set whichwrap+=<,h  " At the start of a line move to end of the previous
                     " when moving the cursor
 set scrolloff=5     " Keep at least 5 lines above/below the cursor
+set sidescroll=1    " Smoother control of horizontal scrolling
 
 set autoread        " Watch for file changes by other programs
 set autowrite       " Write current buffer when running :make
@@ -203,8 +204,8 @@ if has("autocmd")
   augroup vimrcEx
   au!
 
-  " For all text files set 'textwidth' to 78 characters.
-  autocmd FileType text setlocal textwidth=78
+  " For all text files set 'textwidth' to 74 characters.
+  autocmd FileType text setlocal textwidth=74
 
   " Set to automatically reload .vimrc when changes are made to it
   autocmd! bufwritepost .vimrc source %
