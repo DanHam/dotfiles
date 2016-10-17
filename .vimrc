@@ -318,6 +318,10 @@ let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
 " Enable rubocop (gem install rubocop) and default mri checkers for ruby
 let g:syntastic_ruby_checkers = ['rubocop', 'mri']
+" Disable checkers for java. This prevents the appearance of a really
+" annoying pop-up on OS X prompting you to install a JDK because the javac
+" command line tool was not found!
+let g:syntastic_java_checkers = ['']
 
 " supertab:
 "       - https://github.com/ervandew/supertab.git
