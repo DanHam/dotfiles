@@ -422,6 +422,12 @@ let g:ansible_extra_keywords_highlight = 1
 " Run terraform fmt automatically when saving a *.tf or *.tfvars file
 let g:terraform_fmt_on_save = 1
 
+" vim-ps1
+"       - https://github.com/PProvost/vim-ps1.git
+"       - Provides nice syntax coloring and indenting for Windows
+"         PowerShell (.ps1) files, and also includes a filetype plugin so
+"         Vim can autodetect your PS1 scripts.
+
 " --------------------------------------------------------------------------
 " Language settings
 " --------------------------------------------------------------------------
