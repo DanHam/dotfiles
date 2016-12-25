@@ -78,5 +78,6 @@ if [ -f ~/.bashrc ]; then
     . ~/.bashrc
 fi
 
-# Set GoPath
+# Set GoPath and add Go bin directory to path
 export GOPATH=$HOME/working/go
+export PATH=$PATH:$GOPATH/bin
