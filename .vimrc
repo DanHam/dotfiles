@@ -270,16 +270,14 @@ call pathogen#helptags()    " Generate documentation for Plugins
 
 " Automatically managed plugins:
 "
-" vim-irblack
-"       - https://github.com/wesgibbs/vim-irblack.git
-"       - This is a version of Infinite Red's vim theme:
-"         (http://blog.infinitered.com/entries/show/8) packaged to work
-"         with Tim Pope's pathogen plugin
+" neos-irblack
+"       - https://github.com/DanHam/neos-irblack.git
+"       - A custom version of the Vim IR Black colour scheme
 "       - The main theme must be loaded first so that all other plugins
 "         that set some form of highlighting can take effect
 "
 " Set the theme
-colorscheme ir_black
+colorscheme neos_irblack
 " Let vim know we are using a dark console/transparent with dark background
 set background=dark
 
@@ -322,6 +320,9 @@ let g:syntastic_ruby_checkers = ['rubocop', 'mri']
 " annoying pop-up on OS X prompting you to install a JDK because the javac
 " command line tool was not found!
 let g:syntastic_java_checkers = ['']
+" Settings for Go and integration with vim-go
+let g:syntastic_go_checkers = ['golint', 'go-vet', 'errcheck']
+let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go']}
 
 " supertab:
 "       - https://github.com/ervandew/supertab.git
@@ -427,6 +428,33 @@ let g:terraform_fmt_on_save = 1
 "       - Provides nice syntax coloring and indenting for Windows
 "         PowerShell (.ps1) files, and also includes a filetype plugin so
 "         Vim can autodetect your PS1 scripts.
+
+" vim-go
+"       - https://github.com/fatih/vim-go.git
+"       - Provides Go (golang) support for vim
+"       - Run :GoInstallBinaries to install the required Go Tools
+"       - Install neocomplete for auto completion
+"
+" Additional Go syntax highlighting
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_types = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constraints = 1
+" Fix problem with location list window (that contains the output of
+" commands from :GoBuild, :GoTest etc) not appearing when Syntastic is
+" also installed
+let g:go_list_type = "quickfix"
+
+" neocomplete
+"       - https://github.com/Shougo/neocomplete.vim.git
+"       - Provides a keyword completion system by maintaining a cache of
+"         keywords in the current buffer. neocomplete can be customized
+"         easily and has many more features than Vim's built-in completion.
+"
+" Enable keyword completion at startup
+let g:neocomplete#enable_at_startup = 1
 
 " --------------------------------------------------------------------------
 " Language settings
