@@ -1,0 +1,26 @@
+[color]
+	ui = auto
+[core]
+	editor = /opt/local/bin/vim
+	excludesfile = $HOME/.gitignore
+[push]
+	default = simple
+[user]
+	name = DanHam
+	email = DanHam@users.noreply.github.com
+	signingkey = D6AA987E
+[credential]
+	helper = osxkeychain
+[alias]
+	unstage = reset HEAD --
+	last = log -1 HEAD
+[status]
+	submodulesummary = 1
+[diff]
+	tool = opendiff
+[difftool "opendiff"]
+    cmd = /usr/bin/opendiff \"$LOCAL\" \"$REMOTE\" -merge \"$MERGED\" 2>/dev/null | cat
+[merge]
+	tool = opendiff
+[mergetool "opendiff"]
+    cmd = /usr/bin/opendiff \"$LOCAL\" \"$REMOTE\" -merge \"$MERGED\" 2>/dev/null | cat
