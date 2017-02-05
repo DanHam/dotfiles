@@ -484,11 +484,19 @@ hi ExtraWhitespace ctermbg=green
 " Highlight current selection in omnicomplete popup menu
 hi PMenuSel ctermfg=green ctermbg=236
 
-" Create a (faint grey) ruler at column 80
-if exists('+colorcolumn')
-    set colorcolumn=80
-    hi colorcolumn ctermfg=none ctermbg=233
+" Create a (faint grey) ruler at max line width
+if exists('+colorcolumn') |
+    if has("autocmd") |
+        autocmd Filetype *
+                \   if &ft == "go" |
+                \       set colorcolumn=120 |
+                \   else |
+                \       set colorcolumn=80 |
+                \   endif
+        hi colorcolumn ctermfg=none ctermbg=235
+    endif
 endif
+
 
 " Set colours for folding
 if has('folding')
