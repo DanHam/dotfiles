@@ -84,6 +84,21 @@ if [ -f ${VAGRANT_COMPLETIONS} ]; then
 fi
 unset BASE_DIR LATEST VAGRANT_COMPLETIONS
 
+# Docker Completions
+DOCKER_RESOURCES="/Applications/Docker.app/Contents/Resources/etc"
+DOCKER_COMPLETIONS="${DOCKER_RESOURCES}/docker.bash-completion"
+DOCKER_MACHINE_COMPLETIONS="${DOCKER_RESOURCES}/docker-machine.bash-completion"
+DOCKER_COMPOSE_COMPLETIONS="${DOCKER_RESOURCES}/docker-compose.bash-completion"
+if [ -f ${DOCKER_COMPLETIONS} ]; then
+    source ${DOCKER_COMPLETIONS}
+fi
+if [ -f ${DOCKER_MACHINE_COMPLETIONS} ]; then
+    source ${DOCKER_MACHINE_COMPLETIONS}
+fi
+if [ -f ${DOCKER_COMPOSE_COMPLETIONS} ]; then
+    source ${DOCKER_COMPOSE_COMPLETIONS}
+fi
+
 # Colourisation of man pages
 if [ "$TERM" != "dumb" ]; then
     export LESS_TERMCAP_mb=$'\e[01;31m'       # begin blinking
