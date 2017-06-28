@@ -123,7 +123,7 @@ endif
 " --------------------------------------------------------------------------
 
 if has('folding')
-    setlocal foldmethod=indent     " Folding works by aligning with indents
+    setlocal foldmethod=syntax     " Folding defined by syntax highlighting
     setlocal foldlevel=99          " Auto folding occurs for folds above num
     setlocal foldnestmax=10        " Allow this many folds within folds
     setlocal foldcolumn=2          " Display a column for folding
