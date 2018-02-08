@@ -1,0 +1,28 @@
+[color]
+	ui = auto
+[core]
+	editor = /opt/local/bin/vim
+	excludesfile = $HOME/.gitignore
+[push]
+	default = simple
+[user]
+	name = DanHam
+	email = DanHam@users.noreply.github.com
+	signingkey = D6AA987E
+[credential]
+	helper = osxkeychain
+[diff]
+	tool = diffmerge
+	submodule = log
+[difftool "diffmerge"]
+	cmd = /opt/local/bin/diffmerge \"$LOCAL\" \"$REMOTE\"
+[merge]
+	tool = diffmerge
+[mergetool "diffmerge"]
+	trustExitCode = true
+	cmd = /opt/local/bin/diffmerge --merge --result=\"$MERGED\" \"$LOCAL\" \"$BASE\" \"$REMOTE\"
+[alias]
+	unstage = reset HEAD --
+	last = log -1 HEAD
+[status]
+	submodulesummary = 1
