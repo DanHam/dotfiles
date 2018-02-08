@@ -297,7 +297,7 @@ set background=dark
 "         whitespace cleaning painless.
 "
 " Set to auto strip trailing whitespace on file save
-autocmd BufWritePre * StripWhitespace
+" autocmd BufWritePre * StripWhitespace
 "
 
 " syntastic:
@@ -456,6 +456,11 @@ let g:go_list_type = "quickfix"
 " Enable keyword completion at startup
 let g:neocomplete#enable_at_startup = 1
 
+" fugitive.vim
+"       - https://github.com/tpope/vim-fugitive
+"       - Git wrapper for vim
+"
+
 " --------------------------------------------------------------------------
 " Language settings
 " --------------------------------------------------------------------------
@@ -501,9 +506,9 @@ endif
 " Set colours for folding
 if has('folding')
     " Set colour for the fold text
-    hi folded ctermfg=22 ctermbg=none
+    hi folded ctermfg=240 ctermbg=none
     " Set colour for the fold column
-    hi foldcolumn ctermfg=22 ctermbg=none
+    hi foldcolumn ctermfg=24 ctermbg=none
 endif
 
 " NERDTree highlighting
@@ -515,7 +520,7 @@ hi NERDTreeExecFile ctermfg=green ctermbg=none
 set cursorline
 " Adjust colours for the line itself and line number highlighting
 hi CursorLine cterm=none ctermbg=none
-hi CursorLineNr ctermfg=245 ctermbg=none
+hi CursorLineNr ctermfg=226 ctermbg=none
 
 " Set a custom highlight group for use with the statusline
 if &t_Co>2 && &t_Co<=16
