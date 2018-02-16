@@ -139,6 +139,10 @@ if [ -e "$HOME/.rbenv/bin/rbenv" ]; then
     eval "$($HOME/.rbenv/bin/rbenv init -)"
 fi
 
+# Google gcloud completions
+if [ -f '/Users/dan/.google-cloud-sdk/completion.bash.inc' ]; then
+    source '/Users/dan/.google-cloud-sdk/completion.bash.inc';
+fi
 
 # Functions
 
