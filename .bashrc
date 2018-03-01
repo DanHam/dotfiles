@@ -12,7 +12,7 @@ export HISTCONTROL=ignoreboth:erasedups
 # Ignore the following patterns when appending to the history file
 # export HISTIGNORE="ls:ll:la:cd**:history**:top:exit:tree**:c:clear"
 # Set ammount of commands to store in history
-export HISTSIZE=20000
+export HISTSIZE=1000000
 # Synchronise history across multiple sessions;
 # history -a appends the current command to the history file. history -c
 # then clears the history after which history -r reads and updates the
