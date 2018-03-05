@@ -129,9 +129,9 @@ fi
 ssh-add -l >/dev/null || \
     alias ssh='ssh-add -l >/dev/null || ssh-add && unalias ssh; ssh'
 
-# Set default provider for Vagrant
+# Set the preferred provider for Vagrant
 if [ -d "/Applications/VMware Fusion.app/" ]; then
-    export VAGRANT_DEFAULT_PROVIDER='vmware_fusion'
+    export VAGRANT_PREFERRED_PROVIDERS='vmware_fusion'
 fi
 
 # Set up rbenv
