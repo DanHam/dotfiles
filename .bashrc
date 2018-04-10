@@ -67,18 +67,11 @@ unset GIT_COMPLETIONS
 [ -f /Users/dan/.travis/travis.sh ] && source /Users/dan/.travis/travis.sh
 
 # Vagrant Completions
-BASE_DIR="/opt/vagrant/embedded/gems/gems"
-# Get the latest version of vagrant we have installed on the system
-# We could use 'vagrant --version' here but it's very slow. This is ugly
-# but much quicker
+BASE_DIR="/opt/vagrant/embedded/gems"
 if [ -d ${BASE_DIR} ]; then
-    LATEST="$(ls ${BASE_DIR} | \
-        grep -Ex ^vagrant-'([0-9]{1,2}\.[0-9]{1,2}\.[0-9]{1,2})' | \
-              sort -Vr |
-              tr -s '\n' ' ' | \
-              cut -d' ' -f1)"
+    LATEST="$(vagrant --version | cut -d' ' -f2)"
 fi
-VAGRANT_COMPLETIONS="${BASE_DIR}/${LATEST}/contrib/bash/completion.sh"
+VAGRANT_COMPLETIONS="${BASE_DIR}/${LATEST}/gems/vagrant-${LATEST}/contrib/bash/completion.sh"
 if [ -f ${VAGRANT_COMPLETIONS} ]; then
   . ${VAGRANT_COMPLETIONS}
 fi
