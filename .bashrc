@@ -91,6 +91,12 @@ fi
 if [ -f ${DOCKER_COMPOSE_COMPLETIONS} ]; then
     source ${DOCKER_COMPOSE_COMPLETIONS}
 fi
+unset DOCKER_RESOURCES DOCKER_COMPLETIONS DOCKER_COMPLETIONS DOCKER_MACHINE_COMPLETIONS
+
+# Scaleway Completions
+SCALEWAY_COMPLETIONS="/Users/dan/.scaleway/bash/scw.bash"
+[ -f ${SCALEWAY_COMPLETIONS} ] && source ${SCALEWAY_COMPLETIONS}
+unset SCALEWAY_COMPLETIONS
 
 # Colourisation of man pages
 if [ "$TERM" != "dumb" ]; then
