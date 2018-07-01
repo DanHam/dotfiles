@@ -448,6 +448,8 @@ let g:go_highlight_build_constraints = 1
 " commands from :GoBuild, :GoTest etc) not appearing when Syntastic is
 " also installed
 let g:go_list_type = "quickfix"
+" Run GoImports and GoFmt on save
+let g:go_fmt_command = "goimports"
 
 " neocomplete
 "       - https://github.com/Shougo/neocomplete.vim.git
