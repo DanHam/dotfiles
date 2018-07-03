@@ -98,6 +98,11 @@ SCALEWAY_COMPLETIONS="/Users/dan/.scaleway/bash/scw.bash"
 [ -f ${SCALEWAY_COMPLETIONS} ] && source ${SCALEWAY_COMPLETIONS}
 unset SCALEWAY_COMPLETIONS
 
+# Google gcloud completions
+if [ -f '/Users/dan/.google-cloud-sdk/completion.bash.inc' ]; then
+    source '/Users/dan/.google-cloud-sdk/completion.bash.inc';
+fi
+
 # Colourisation of man pages
 if [ "$TERM" != "dumb" ]; then
     export LESS_TERMCAP_mb=$'\e[01;31m'       # begin blinking
@@ -136,11 +141,6 @@ fi
 # Set up rbenv
 if [ -e "$HOME/.rbenv/bin/rbenv" ]; then
     eval "$($HOME/.rbenv/bin/rbenv init -)"
-fi
-
-# Google gcloud completions
-if [ -f '/Users/dan/.google-cloud-sdk/completion.bash.inc' ]; then
-    source '/Users/dan/.google-cloud-sdk/completion.bash.inc';
 fi
 
 # Functions
