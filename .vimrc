@@ -439,7 +439,7 @@ let g:terraform_fmt_on_save = 1
 "
 " Additional Go syntax highlighting
 let g:go_highlight_functions = 1
-let g:go_highlight_methods = 1
+let g:go_highlight_function_calls = 1
 let g:go_highlight_fields = 1
 let g:go_highlight_types = 1
 let g:go_highlight_operators = 1
