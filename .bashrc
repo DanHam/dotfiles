@@ -103,6 +103,12 @@ if [ -f '/Users/dan/.google-cloud-sdk/completion.bash.inc' ]; then
     source '/Users/dan/.google-cloud-sdk/completion.bash.inc';
 fi
 
+# tmux completions
+# https://github.com/Bash-it/bash-it/blob/master/completion/available/tmux.completion.bash
+if [ -f '/Users/dan/.tmux_completion.bash' ]; then
+    source '/Users/dan/.tmux_completion.bash';
+fi
+
 # Colourisation of man pages
 if [ "$TERM" != "dumb" ]; then
     export LESS_TERMCAP_mb=$'\e[01;31m'       # begin blinking
