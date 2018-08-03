@@ -282,6 +282,26 @@ call pathogen#helptags()    " Generate documentation for Plugins
 colorscheme neos_irblack
 " Let vim know we are using a dark console/transparent with dark background
 set background=dark
+"
+
+" ansible-vim
+"       - https://github.com/pearofducks/ansible-vim.git
+"       - A VIM syntax plugin for Ansible 2.0
+"       - Supports playbooks, Jinja2 templates and Ansibles host files
+"       - When the file type is not automatically detected use the
+"         following stanza at the head of the file:
+"         # vim: ft=ansible:
+"
+" Highlighting for attributes. Available flags are:
+"   a: highlight all instances of key=
+"   o: highlight only instances of key= found on newlines
+"   d: dim the instances of key= found
+"   b: brighten the instances of key= found
+"   n: turn off this highlight completely
+let g:ansible_attribute_highlight = 'ab'
+" Highlight for additional keywords
+let g:ansible_extra_keywords_highlight = 1
+"
 
 " jedi-vim:
 "       - https://github.com/davidhalter/jedi-vim
@@ -290,16 +310,54 @@ set background=dark
 "         of the jedi-vim repo (includes jedi)
 "
 
-" vim-better-whitespace:
-"       - https://github.com/ntpeters/vim-better-whitespace.git
-"       - This plugin causes all trailing whitespace characters (spaces and
-"         tabs) to be highlighted. Whitespace for the current line will not
-"         be highlighted while in insert mode.
-"       - A helper function :StripWhitespace is also provided to make
-"         whitespace cleaning painless.
+" neocomplete
+"       - https://github.com/Shougo/neocomplete.vim.git
+"       - Provides a keyword completion system by maintaining a cache of
+"         keywords in the current buffer. neocomplete can be customized
+"         easily and has many more features than Vim's built-in completion.
 "
-" Set to auto strip trailing whitespace on file save
-autocmd BufWritePre * StripWhitespace
+" Enable keyword completion at startup
+let g:neocomplete#enable_at_startup = 1
+"
+
+" nerdcommenter
+"       - https://github.com/scrooloose/nerdcommenter.git
+"       - Vim plugin for intensely orgasmic commenting
+"
+" Set to insert spaces after left comment delimiter and before right comment
+" delimiter e.g. /* With Spaces */ as opposed to /*Without Spaces*/ and
+" conversely set to remove extra spaces when we uncomment a line... but not
+" when editing a python file where this behaviour seems to be automatic!!
+if has("autocmd")
+    autocmd Filetype *
+            \   if &ft != "python" |
+            \       let g:NERDSpaceDelims = 1 |
+            \       let g:NERDRemoveExtraSpaces = 1 |
+            \   endif
+endif
+"
+
+" nerdtree
+"       - https://github.com/scrooloose/nerdtree.git
+"       - The NERD tree allows you to explore your filesystem and to open
+"         files and directories.
+"
+" Set mouse click behaviour: single click to open directories, double for
+" files
+let g:NERDTreeMouseMode=2
+" Set to auto close the NERDTree pane when a file is opened
+let g:NERDTreeQuitOnOpen=1
+"
+
+" supertab:
+"       - https://github.com/ervandew/supertab.git
+"       - Supertab is a vim plugin which allows you to use <Tab> for all
+"         your insert completion needs (:help ins-completion).
+"
+" Code completion SuperTab config
+let g:SuperTabDefaultCompletionType = "context"
+" Use always c-x c-o -> not c-n
+let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
 "
 
 " syntastic:
@@ -325,58 +383,6 @@ let g:syntastic_java_checkers = ['']
 " Settings for Go and integration with vim-go
 let g:syntastic_go_checkers = ['golint', 'go-vet', 'errcheck']
 let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go']}
-
-" supertab:
-"       - https://github.com/ervandew/supertab.git
-"       - Supertab is a vim plugin which allows you to use <Tab> for all
-"         your insert completion needs (:help ins-completion).
-"
-" Code completion SuperTab config
-let g:SuperTabDefaultCompletionType = "context"
-" Use always c-x c-o -> not c-n
-let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
-
-" nerdcommenter
-"       - https://github.com/scrooloose/nerdcommenter.git
-"       - Vim plugin for intensely orgasmic commenting
-"
-" Set to insert spaces after left comment delimiter and before right comment
-" delimiter e.g. /* With Spaces */ as opposed to /*Without Spaces*/ and
-" conversely set to remove extra spaces when we uncomment a line... but not
-" when editing a python file where this behaviour seems to be automatic!!
-if has("autocmd")
-    autocmd Filetype *
-            \   if &ft != "python" |
-            \       let g:NERDSpaceDelims = 1 |
-            \       let g:NERDRemoveExtraSpaces = 1 |
-            \   endif
-endif
-
-" nerdtree
-"       - https://github.com/scrooloose/nerdtree.git
-"       - The NERD tree allows you to explore your filesystem and to open
-"         files and directories.
-"
-" Set mouse click behaviour: single click to open directories, double for
-" files
-let g:NERDTreeMouseMode=2
-" Set to auto close the NERDTree pane when a file is opened
-let g:NERDTreeQuitOnOpen=1
-
-" vim-markdown-folding
-"       - https://github.com/nelstrom/vim-markdown-folding.git
-"       - This plugin enables folding by section headings in markdown
-"         documents.
-"
-" Prefer the nested style of folding; Can be toggled with :FoldToggle
-let g:markdown_fold_style = 'nested'
-
-" vim-puppet
-"       - https://github.com/rodjek/vim-puppet.git
-"       - Make vim more Puppet friendly!
-"       - Formatting based on Puppetlabs Style Guide
-"       - Syntax highlighting
-"       - Automatic => alignment (when the Tabular plugin is installed)
 "
 
 " Tabular
@@ -385,51 +391,27 @@ let g:markdown_fold_style = 'nested'
 "       - See http://vimcasts.org/episodes/aligning-text-with-tabular-vim/
 "
 
-" vim-ruby
-"       - https://github.com/vim-ruby/vim-ruby.git
-"       - Vim configuration files for editing and compiling Ruby within Vim
+" vim-better-whitespace:
+"       - https://github.com/ntpeters/vim-better-whitespace.git
+"       - This plugin causes all trailing whitespace characters (spaces and
+"         tabs) to be highlighted. Whitespace for the current line will not
+"         be highlighted while in insert mode.
+"       - A helper function :StripWhitespace is also provided to make
+"         whitespace cleaning painless.
+"
+" Set to auto strip trailing whitespace on file save
+autocmd BufWritePre * StripWhitespace
+"
 
 " vim-endwise
 "       - https://github.com/tpope/vim-endwise.git
 "       - A plugin that helps to end certain structures automatically
-
-" vim-ansible
-"       - https://github.com/pearofducks/ansible-vim.git
-"       - A VIM syntax plugin for Ansible 2.0
-"       - Supports playbooks, Jinja2 templates and Ansibles host files
-"       - When the file type is not automatically detected use the
-"         following stanza at the head of the file:
-"         # vim: ft=ansible:
 "
-" Highlighting for attributes. Available flags are:
-"   a: highlight all instances of key=
-"   o: highlight only instances of key= found on newlines
-"   d: dim the instances of key= found
-"   b: brighten the instances of key= found
-"   n: turn off this highlight completely
-let g:ansible_attribute_highlight = 'ab'
-" Highlight for additional keywords
-let g:ansible_extra_keywords_highlight = 1
 
-" vim-terraform
-"       - https://github.com/hashivim/vim-terraform.git
-"       - Adds a :Terraform command that runs terraform, with tab
-"         completion of subcommands
-"       - Sets up *.tf, *.tfvars, and *.tfstate files to be highlighted as
-"         HCL, HCL, and JSON respectively
-"       - Adds a :TerraformFmt command that runs terraform fmt against the
-"         current buffer
-"       - Set g:terraform_fmt_on_save to 1 to run terraform fmt
-"         automatically when saving *.tf or *.tfvars files
+" vim-fugitive
+"       - https://github.com/tpope/vim-fugitive
+"       - Git wrapper for vim
 "
-" Run terraform fmt automatically when saving a *.tf or *.tfvars file
-let g:terraform_fmt_on_save = 1
-
-" vim-ps1
-"       - https://github.com/PProvost/vim-ps1.git
-"       - Provides nice syntax coloring and indenting for Windows
-"         PowerShell (.ps1) files, and also includes a filetype plugin so
-"         Vim can autodetect your PS1 scripts.
 
 " vim-go
 "       - https://github.com/fatih/vim-go.git
@@ -450,19 +432,50 @@ let g:go_highlight_build_constraints = 1
 let g:go_list_type = "quickfix"
 " Run GoImports and GoFmt on save
 let g:go_fmt_command = "goimports"
-
-" neocomplete
-"       - https://github.com/Shougo/neocomplete.vim.git
-"       - Provides a keyword completion system by maintaining a cache of
-"         keywords in the current buffer. neocomplete can be customized
-"         easily and has many more features than Vim's built-in completion.
 "
-" Enable keyword completion at startup
-let g:neocomplete#enable_at_startup = 1
 
-" fugitive.vim
-"       - https://github.com/tpope/vim-fugitive
-"       - Git wrapper for vim
+" vim-markdown-folding
+"       - https://github.com/nelstrom/vim-markdown-folding.git
+"       - This plugin enables folding by section headings in markdown
+"         documents.
+"
+" Prefer the nested style of folding; Can be toggled with :FoldToggle
+let g:markdown_fold_style = 'nested'
+"
+
+" vim-ps1
+"       - https://github.com/PProvost/vim-ps1.git
+"       - Provides nice syntax coloring and indenting for Windows
+"         PowerShell (.ps1) files, and also includes a filetype plugin so
+"         Vim can autodetect your PS1 scripts.
+"
+
+" vim-puppet
+"       - https://github.com/rodjek/vim-puppet.git
+"       - Make vim more Puppet friendly!
+"       - Formatting based on Puppetlabs Style Guide
+"       - Syntax highlighting
+"       - Automatic => alignment (when the Tabular plugin is installed)
+"
+
+" vim-ruby
+"       - https://github.com/vim-ruby/vim-ruby.git
+"       - Vim configuration files for editing and compiling Ruby within Vim
+"
+
+" vim-terraform
+"       - https://github.com/hashivim/vim-terraform.git
+"       - Adds a :Terraform command that runs terraform, with tab
+"         completion of subcommands
+"       - Sets up *.tf, *.tfvars, and *.tfstate files to be highlighted as
+"         HCL, HCL, and JSON respectively
+"       - Adds a :TerraformFmt command that runs terraform fmt against the
+"         current buffer
+"       - Set g:terraform_fmt_on_save to 1 to run terraform fmt
+"         automatically when saving *.tf or *.tfvars files
+"
+" Run terraform fmt automatically when saving a *.tf or *.tfvars file
+let g:terraform_fmt_on_save = 1
 "
 
 " --------------------------------------------------------------------------
