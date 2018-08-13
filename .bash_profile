@@ -14,16 +14,19 @@ fi
 # Local scripts and programs
 export PATH=$PATH:~/.bin
 
-# VMware Fusion and OVF Tool binaries
+# VMware Fusion binaries
 FUSIONBINPATH="/Applications/VMware Fusion.app/Contents/Library"
-OVFTOOLPATH="${FUSIONBINPATH}/VMware OVF Tool"
 if [ -d "${FUSIONBINPATH}" ]; then
     export PATH=$PATH:"${FUSIONBINPATH}"
 fi
+unset FUSIONBINPATH
+
+# VMware OVF Tool
+OVFTOOLPATH="/Applications/VMware OVF Tool"
 if [ -d "${OVFTOOLPATH}" ]; then
     export PATH=$PATH:"${OVFTOOLPATH}"
 fi
-unset FUSIONBINPATH OVFTOOLPATH
+unset OVFTOOLPATH
 
 # Ruby Environments: rbenv and ruby-build
 if [ -e "$HOME/.rbenv/bin/rbenv" ]; then
