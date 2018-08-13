@@ -14,6 +14,9 @@ fi
 # Local scripts and programs
 export PATH=$PATH:~/.bin
 
+# GPG Agent
+export GPG_TTY=$(tty)
+
 # VMware Fusion binaries
 FUSIONBINPATH="/Applications/VMware Fusion.app/Contents/Library"
 if [ -d "${FUSIONBINPATH}" ]; then
