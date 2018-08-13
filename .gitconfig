@@ -10,7 +10,8 @@
 	email = DanHam@users.noreply.github.com
 	signingkey = D6AA987E
 [credential]
-	helper = osxkeychain
+	helper = /Users/dan/Library/Python/3.5/bin/pass-git-helper
+	useHttpPath = true
 [alias]
 	unstage = reset HEAD --
 	last = log -1 HEAD
