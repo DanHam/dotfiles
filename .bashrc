@@ -100,13 +100,36 @@ unset SCALEWAY_COMPLETIONS
 
 # Google gcloud completions
 if [ -f '/Users/dan/.google-cloud-sdk/completion.bash.inc' ]; then
-    source '/Users/dan/.google-cloud-sdk/completion.bash.inc';
+    source '/Users/dan/.google-cloud-sdk/completion.bash.inc'
 fi
 
 # tmux completions
 # https://github.com/Bash-it/bash-it/blob/master/completion/available/tmux.completion.bash
 if [ -f '/Users/dan/.tmux_completion.bash' ]; then
-    source '/Users/dan/.tmux_completion.bash';
+    source '/Users/dan/.tmux_completion.bash'
+fi
+
+# Ansible completions
+# https://github.com/dysosmus/ansible-completion.git
+ANSIBLE_COMPLETIONS_DIR='/Users/dan/.ansible-completion.d'
+if [ -d ${ANSIBLE_COMPLETIONS_DIR} ]; then
+    # find and xargs don't work with bash builtins so just store and
+    # iterate over with a simple do loop
+    ANSIBLE_COMPLETIONS="$(find ${ANSIBLE_COMPLETIONS_DIR} -type f -name \
+        "*.bash" | tr '\n' ' ')"
+    if [ "x${ANSIBLE_COMPLETIONS}" != "x" ]; then
+        for i in ${ANSIBLE_COMPLETIONS}
+        do
+            source $i
+        done
+    fi
+fi
+unset ANSIBLE_COMPLETIONS_DIR ANSIBLE_COMPLETIONS
+
+# Test-Kitchen
+# https://github.com/MarkBorcherding/test-kitchen-bash-completion
+if [ -f '/Users/dan/.test_kitchen_completion.bash' ]; then
+    source '/Users/dan/.test_kitchen_completion.bash'
 fi
 
 # Colourisation of man pages
