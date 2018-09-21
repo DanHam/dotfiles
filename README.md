@@ -1,2 +1,2 @@
 # dotfiles
-Configuration files: bash, git, nano etc
+Configuration files: bash, git, vim etc
