@@ -1,0 +1,16 @@
+# Set working directory for terminals to supplied arg or user home if unset
+if [ $1 ]; then
+    WD=$1
+else
+    WD=${HOME}
+fi
+# Create a new session
+tmux new-session -s default -d -x 318 -y 79 -c ${WD}
+# Set up panes
+#
+# Split main window vertically
+tmux split-window -t default -h -l 80 -c ${WD}
+# Split again vertically
+tmux split-window -t default:1.1 -h -l 118 -c ${WD}
+# Split middle window horizontally
+tmux split-window -t default:1.2 -v -c ${WD}
