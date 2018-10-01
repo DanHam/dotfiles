@@ -478,6 +478,16 @@ let g:markdown_fold_style = 'nested'
 let g:terraform_fmt_on_save = 1
 "
 
+" vim-indent-guides
+"       - https://github.com/nathanaelkane/vim-indent-guides.git
+"       - Visually display indent levels in Vim
+"
+" Override the default colours
+let g:indent_guides_auto_colors = 0
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=232
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=233
+"
+
 " --------------------------------------------------------------------------
 " Language settings
 " --------------------------------------------------------------------------
