@@ -169,7 +169,7 @@ ssh-add -l >/dev/null || \
 
 # Set the preferred provider for Vagrant
 if [ -d "/Applications/VMware Fusion.app/" ]; then
-    export VAGRANT_PREFERRED_PROVIDERS='vmware_fusion'
+    export VAGRANT_PREFERRED_PROVIDERS='virtualbox'
 fi
 
 # Set up rbenv
