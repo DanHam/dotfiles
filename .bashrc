@@ -126,6 +126,11 @@ if [ -d ${ANSIBLE_COMPLETIONS_DIR} ]; then
 fi
 unset ANSIBLE_COMPLETIONS_DIR ANSIBLE_COMPLETIONS
 
+# Terraform completions
+if [ -f '/Users/dan/.bin/terraform' ]; then
+    complete -C /Users/dan/.bin/terraform terraform
+fi
+
 # Test-Kitchen
 # https://github.com/MarkBorcherding/test-kitchen-bash-completion
 if [ -f '/Users/dan/.test_kitchen_completion.bash' ]; then
