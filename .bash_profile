@@ -17,6 +17,9 @@ export PATH=$PATH:~/.bin
 # GPG Agent
 export GPG_TTY=$(tty)
 
+# Ensure programs such as tmux/screen use the MacPorts installed bash
+export SHELL=/opt/local/bin/bash
+
 # VMware Fusion binaries
 FUSIONBINPATH="/Applications/VMware Fusion.app/Contents/Library"
 if [ -d "${FUSIONBINPATH}" ]; then
