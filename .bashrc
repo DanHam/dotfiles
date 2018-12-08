@@ -63,9 +63,6 @@ if [ -f $GIT_COMPLETIONS ]; then
 fi
 unset GIT_COMPLETIONS
 
-# Travis CI Bash Completion (added by travis gem)
-[ -f /Users/dan/.travis/travis.sh ] && source /Users/dan/.travis/travis.sh
-
 # Vagrant Completions
 BASE_DIR="/opt/vagrant/embedded/gems"
 if [ -d ${BASE_DIR} ]; then
@@ -93,11 +90,6 @@ if [ -f ${DOCKER_COMPOSE_COMPLETIONS} ]; then
 fi
 unset DOCKER_RESOURCES DOCKER_COMPLETIONS DOCKER_COMPLETIONS DOCKER_MACHINE_COMPLETIONS
 
-# Scaleway Completions
-SCALEWAY_COMPLETIONS="/Users/dan/.scaleway/bash/scw.bash"
-[ -f ${SCALEWAY_COMPLETIONS} ] && source ${SCALEWAY_COMPLETIONS}
-unset SCALEWAY_COMPLETIONS
-
 # Google gcloud completions
 if [ -f '/Users/dan/.google-cloud-sdk/completion.bash.inc' ]; then
     source '/Users/dan/.google-cloud-sdk/completion.bash.inc'
@@ -105,13 +97,15 @@ fi
 
 # tmux completions
 # https://github.com/Bash-it/bash-it/blob/master/completion/available/tmux.completion.bash
-if [ -f '/Users/dan/.tmux_completion.bash' ]; then
-    source '/Users/dan/.tmux_completion.bash'
+TMUX_COMPLETIONS='/Users/dan/.bash_completion.d/tmux/tmux_completion.bash'
+if [ -f ${TMUX_COMPLETIONS} ]; then
+    source ${TMUX_COMPLETIONS}
 fi
+unset TMUX_COMPLETIONS
 
 # Ansible completions
 # https://github.com/dysosmus/ansible-completion.git
-ANSIBLE_COMPLETIONS_DIR='/Users/dan/.ansible-completion.d'
+ANSIBLE_COMPLETIONS_DIR='/Users/dan/.bash_completion.d/ansible-completion.d'
 if [ -d ${ANSIBLE_COMPLETIONS_DIR} ]; then
     # find and xargs don't work with bash builtins so just store and
     # iterate over with a simple do loop
@@ -133,9 +127,19 @@ fi
 
 # Test-Kitchen
 # https://github.com/MarkBorcherding/test-kitchen-bash-completion
-if [ -f '/Users/dan/.test_kitchen_completion.bash' ]; then
-    source '/Users/dan/.test_kitchen_completion.bash'
+TEST_KITCHEN_COMPLETIONS='/Users/dan/.bash_completion.d/test-kitchen/kitchen-completion.bash'
+if [ -f ${TEST_KITCHEN_COMPLETIONS} ]; then
+    source ${TEST_KITCHEN_COMPLETIONS}
 fi
+unset TEST_KITCHEN_COMPLETIONS
+
+# Go command completions
+# https://github.com/thomasf/go-bash-completion.git
+GO_COMPLETIONS='/Users/dan/.bash_completion.d/go/go-bash-completion.bash'
+if [ -f ${GO_COMPLETIONS} ]; then
+    source ${GO_COMPLETIONS}
+fi
+unset GO_COMPLETIONS
 
 # Colourisation of man pages
 if [ "$TERM" != "dumb" ]; then
