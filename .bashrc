@@ -163,21 +163,13 @@ fi
 # Use enhancements built around less; See lesspipe(1)
 export LESSOPEN='| /opt/local/bin/lesspipe.sh %s'
 
-# Use ssh-agent for per-session caching of ssh keys
-#
-# Start ssh agent and store required environment variables
-if ! $(pgrep -u $USER ssh-agent > /dev/null); then
-    ssh-agent > $HOME/.ssh-agent-info 2>&1>/dev/null
+# Use ssh-agent if for per-session caching of ssh keys
+if ! pgrep -u $USER ssh-agent > /dev/null; then
+    # Start the agent, simultaneously setting required env vars from the
+    # start up output of the ssh-agent command. grep out the annoying echo
+    # of the ssh-agent pid
+    eval "$(ssh-agent -s | grep -v echo)"
 fi
-# Set required environment variables from stored info
-if [[ "$SSH_AGENT_PID" == '' ]]; then
-    # Read in from file grepping out the annoying echo command and
-    # evaluate to set the environment variables
-    eval $(grep -v echo <$HOME/.ssh-agent-info)
-fi
-# Wrap an alias around ssh to add the key to the agent on first run of ssh
-ssh-add -l >/dev/null || \
-    alias ssh='ssh-add -l >/dev/null || ssh-add && unalias ssh; ssh'
 
 # Set the preferred provider for Vagrant
 if [ -d "/Applications/VMware Fusion.app/" ]; then
