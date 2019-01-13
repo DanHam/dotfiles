@@ -4,13 +4,6 @@ export PATH=/opt/local/bin:/opt/local/sbin:$PATH
 # MacPorts GNU Core Utilities
 export PATH=/opt/local/libexec/gnubin:$PATH
 
-# MacPorts ManPath
-if [ "x${MANPATH}" = "x" ]; then
-    export MANPATH=/opt/local/share/man
-else
-    export MANPATH=/opt/local/share/man:$MANPATH
-fi
-
 # Local scripts and programs
 export PATH=$PATH:~/.bin
 
