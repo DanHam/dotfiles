@@ -141,6 +141,14 @@ if [ -f ${GO_COMPLETIONS} ]; then
 fi
 unset GO_COMPLETIONS
 
+# Packer command completions
+# https://github.com/mrolli/packer-bash-completion.git
+PACKER_COMPLETIONS='/Users/dan/.bash_completion.d/packer/packer-completion.bash'
+if [ -f ${PACKER_COMPLETIONS} ]; then
+    source ${PACKER_COMPLETIONS}
+fi
+unset PACKER_COMPLETIONS
+
 # Colourisation of man pages
 if [ "$TERM" != "dumb" ]; then
     export LESS_TERMCAP_mb=$'\e[01;31m'       # begin blinking
