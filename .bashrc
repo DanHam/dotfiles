@@ -149,6 +149,11 @@ if [ -f ${PACKER_COMPLETIONS} ]; then
 fi
 unset PACKER_COMPLETIONS
 
+# kubectl command completions
+if [ "x$(command -v kubectl)" != "x" ]; then
+    source <(kubectl completion bash)
+fi
+
 # Colourisation of man pages
 if [ "$TERM" != "dumb" ]; then
     export LESS_TERMCAP_mb=$'\e[01;31m'       # begin blinking
