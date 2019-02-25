@@ -201,3 +201,9 @@ sawsup () {
         echo "Virtual env for SAWS not found or SAWS missing: ~/.venv-saws"
     fi
 }
+
+# Ansible virtual environment
+ansibleup () {
+    [[ -e ~/.venv-ansible/bin/activate ]] && \
+        source ~/.venv-ansible/bin/activate
+}
