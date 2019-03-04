@@ -485,7 +485,7 @@ let g:terraform_fmt_on_save = 1
 " Override the default colours
 let g:indent_guides_auto_colors = 0
 autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=232
-autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=233
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=234
 "
 
 " --------------------------------------------------------------------------
