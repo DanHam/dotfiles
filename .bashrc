@@ -204,6 +204,9 @@ sawsup () {
 
 # Ansible virtual environment
 ansibleup () {
-    [[ -e ~/.venv-ansible/bin/activate ]] && \
+    if [ -e ~/.venv-ansible/bin/activate ]; then
         source ~/.venv-ansible/bin/activate
+        # Enable pip bash completions
+        source <(pip completion --bash)
+    fi
 }
