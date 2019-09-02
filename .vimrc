@@ -488,6 +488,11 @@ autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=232
 autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=234
 "
 
+" bats.vim
+"       - https://github.com/aliou/bats.vim.git
+"       - Adds syntax highlighting for Bats test files
+"
+
 " --------------------------------------------------------------------------
 " Language settings
 " --------------------------------------------------------------------------
