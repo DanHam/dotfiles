@@ -5,7 +5,7 @@ export PATH=/opt/local/bin:/opt/local/sbin:$PATH
 export PATH=/opt/local/libexec/gnubin:$PATH
 
 # Local scripts and programs
-export PATH=$PATH:~/.bin
+export PATH=$PATH:~/.local/bin
 
 # GPG Agent
 export GPG_TTY=$(tty)
