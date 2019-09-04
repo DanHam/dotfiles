@@ -310,14 +310,29 @@ let g:ansible_extra_keywords_highlight = 1
 "         of the jedi-vim repo (includes jedi)
 "
 
-" neocomplete
-"       - https://github.com/Shougo/neocomplete.vim.git
-"       - Provides a keyword completion system by maintaining a cache of
-"         keywords in the current buffer. neocomplete can be customized
-"         easily and has many more features than Vim's built-in completion.
+" deoplete
+"       - https://github.com/Shougo/deoplete.vim.git
+"       - Provides an extensible and asynchronous completion framework for
+"         neovim/Vim8.
+"       - Requires:
+"           * nvim-yarp
+"           * vim-hug-neovim-rpc
 "
 " Enable keyword completion at startup
-let g:neocomplete#enable_at_startup = 1
+let g:deoplete#enable_at_startup = 1
+"
+
+" nvim-yarp
+"       - https://github.com/roxma/nvim-yarp
+"       - Yet Another Remote Plugin Framework fo Neovim/Vim8
+"       - Requirement of deoplete
+"
+
+" vim-hug-neovim-rpc
+"       - https://github.com/roxma/vim-hug-neovim-rpc
+"       - An experimental project, trying to build a compatibility layer
+"         for neovim rpc client working on vim8.
+"       - Requirement of deoplete
 "
 
 " nerdcommenter
