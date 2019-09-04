@@ -432,6 +432,9 @@ let g:go_highlight_build_constraints = 1
 let g:go_list_type = "quickfix"
 " Run GoImports and GoFmt on save
 let g:go_fmt_command = "goimports"
+" Use gopls for :GoDef and :GoInfo
+let g:go_def_mode = "gopls"
+let g:go_info_mode = "gopls"
 "
 
 " vim-markdown-folding
