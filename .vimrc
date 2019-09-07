@@ -409,8 +409,8 @@ let g:go_highlight_build_constraints = 1
 " commands from :GoBuild, :GoTest etc) not appearing when Syntastic is
 " also installed
 let g:go_list_type = "quickfix"
-" Run GoImports and GoFmt on save
-let g:go_fmt_command = "goimports"
+" Run GoFmt on save
+let g:go_fmt_command = "gofmt"
 " Use gopls for :GoDef and :GoInfo
 let g:go_def_mode = "gopls"
 let g:go_info_mode = "gopls"
