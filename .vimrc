@@ -310,31 +310,6 @@ let g:ansible_extra_keywords_highlight = 1
 "         of the jedi-vim repo (includes jedi)
 "
 
-" deoplete
-"       - https://github.com/Shougo/deoplete.vim.git
-"       - Provides an extensible and asynchronous completion framework for
-"         neovim/Vim8.
-"       - Requires:
-"           * nvim-yarp
-"           * vim-hug-neovim-rpc
-"
-" Enable keyword completion at startup
-let g:deoplete#enable_at_startup = 1
-"
-
-" nvim-yarp
-"       - https://github.com/roxma/nvim-yarp
-"       - Yet Another Remote Plugin Framework fo Neovim/Vim8
-"       - Requirement of deoplete
-"
-
-" vim-hug-neovim-rpc
-"       - https://github.com/roxma/vim-hug-neovim-rpc
-"       - An experimental project, trying to build a compatibility layer
-"         for neovim rpc client working on vim8.
-"       - Requirement of deoplete
-"
-
 " nerdcommenter
 "       - https://github.com/scrooloose/nerdcommenter.git
 "       - Vim plugin for intensely orgasmic commenting
@@ -362,17 +337,6 @@ endif
 let g:NERDTreeMouseMode=2
 " Set to auto close the NERDTree pane when a file is opened
 let g:NERDTreeQuitOnOpen=1
-"
-
-" supertab:
-"       - https://github.com/ervandew/supertab.git
-"       - Supertab is a vim plugin which allows you to use <Tab> for all
-"         your insert completion needs (:help ins-completion).
-"
-" Code completion SuperTab config
-let g:SuperTabDefaultCompletionType = "context"
-" Use always c-x c-o -> not c-n
-let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
 "
 
 " syntastic:
@@ -432,7 +396,7 @@ autocmd BufWritePre * StripWhitespace
 "       - https://github.com/fatih/vim-go.git
 "       - Provides Go (golang) support for vim
 "       - Run :GoInstallBinaries to install the required Go Tools
-"       - Install neocomplete for auto completion
+"       - Install YouCompleteMe for auto completion
 "
 " Additional Go syntax highlighting
 let g:go_highlight_functions = 1
@@ -509,6 +473,58 @@ autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=234
 " bats.vim
 "       - https://github.com/aliou/bats.vim.git
 "       - Adds syntax highlighting for Bats test files
+"
+
+" YouCompleteMe
+"       - https://github.com/ycm-core/YouCompleteMe.git
+"       - A code completion engine for Vim
+"
+" Explicitly set the path to the Python2 interpreter
+let g:ycm_server_python_interpreter = '/opt/local/bin/python2.7'
+" Configure YCM to look in strings and comments for words that it should
+" offer to auto-complete. This is required for auto-completion to work
+" reasonably within Bash where variables/enviroment variables are often
+" surrounded with quotes e.g. "${DEBUG}"
+let g:ycm_collect_identifiers_from_comments_and_strings = 1
+" Configure YCM to complete in strings for the same reasons given above
+let g:ycm_complete_in_strings = 1
+" Configure YCM to perform completion in comments
+let g:ycm_complete_in_comments = 1
+" Allow YCM to seed it's completion/identifier database with keywords
+let g:ycm_seed_identifiers_with_syntax = 1
+" Make YCM compatible with UltiSnips (using supertab - see below)
+let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+"
+
+" UltiSnips
+"       - https://github.com/SirVer/ultisnips.git
+"       - The ultimate snippet tool for Vim
+"
+" Set the Ultisnip edit window to open either vertically or horizontally
+" depending on context
+let g:UltiSnipsEditSplit = "context"
+" Use snippets defined by third party plugins (~/.vim/UltiSnips) and user
+" defined snippets (~/.vim/local-snippets)
+let g:UltiSnipsSnippetDirectories = ["UltiSnips", "local-snippets"]
+" Key bindings for UltiSnipsExpandTrigger
+let g:UltiSnipsExpandTrigger = "<C-Space>"
+let g:UltiSnipsJumpForwardTrigger = "<tab>"
+let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
+
+" supertab:
+"       - https://github.com/ervandew/supertab.git
+"       - Supertab is a vim plugin which allows you to use <Tab> for all
+"         your insert completion needs (:help ins-completion).
+"
+"
+let g:SuperTabDefaultCompletionType = '<C-n>'
+"
+
+" delimitMate
+"       - https://github.com/Raimondi/delimitMate.git
+"       - delimitMate provides automatic closing of quotes, parenthesis,
+"         brackets, and so on.
 "
 
 " --------------------------------------------------------------------------
