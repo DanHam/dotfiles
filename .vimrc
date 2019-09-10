@@ -414,6 +414,8 @@ let g:go_fmt_command = "gofmt"
 " Use gopls for :GoDef and :GoInfo
 let g:go_def_mode = "gopls"
 let g:go_info_mode = "gopls"
+" Auto display function signatures, types etc
+let g:go_auto_type_info = 1
 "
 
 " vim-markdown-folding
