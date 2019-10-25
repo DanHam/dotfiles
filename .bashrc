@@ -154,6 +154,11 @@ if [ "x$(command -v kubectl)" != "x" ]; then
     source <(kubectl completion bash)
 fi
 
+# Terraform
+if command -v terraform &>/dev/null; then
+    complete -C "$(command -v terraform)" terraform
+fi
+
 # Colourisation of man pages
 if [ "$TERM" != "dumb" ]; then
     export LESS_TERMCAP_mb=$'\e[01;31m'       # begin blinking
