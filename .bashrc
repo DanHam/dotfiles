@@ -104,21 +104,12 @@ fi
 unset TMUX_COMPLETIONS
 
 # Ansible completions
-# https://github.com/dysosmus/ansible-completion.git
-ANSIBLE_COMPLETIONS_DIR='/Users/dan/.bash_completion.d/ansible-completion.d'
-if [ -d ${ANSIBLE_COMPLETIONS_DIR} ]; then
-    # find and xargs don't work with bash builtins so just store and
-    # iterate over with a simple do loop
-    ANSIBLE_COMPLETIONS="$(find ${ANSIBLE_COMPLETIONS_DIR} -type f -name \
-        "*.bash" | tr '\n' ' ')"
-    if [ "x${ANSIBLE_COMPLETIONS}" != "x" ]; then
-        for i in ${ANSIBLE_COMPLETIONS}
-        do
-            source $i
-        done
-    fi
+# https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html#shell-completion
+PYTHON_ARGCOMPLETE_SCRIPT='/Users/dan/.bash_completion.d/ansible/python-argcomplete.sh'
+if [ -f ${PYTHON_ARGCOMPLETE_SCRIPT} ]; then
+    source ${PYTHON_ARGCOMPLETE_SCRIPT}
 fi
-unset ANSIBLE_COMPLETIONS_DIR ANSIBLE_COMPLETIONS
+unset PYTHON_ARGCOMPLETE_SCRIPT
 
 # Terraform completions
 if [ -f '/Users/dan/.bin/terraform' ]; then
