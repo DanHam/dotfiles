@@ -111,11 +111,6 @@ if [ -f ${PYTHON_ARGCOMPLETE_SCRIPT} ]; then
 fi
 unset PYTHON_ARGCOMPLETE_SCRIPT
 
-# Terraform completions
-if [ -f '/Users/dan/.bin/terraform' ]; then
-    complete -C /Users/dan/.bin/terraform terraform
-fi
-
 # Test-Kitchen
 # https://github.com/MarkBorcherding/test-kitchen-bash-completion
 TEST_KITCHEN_COMPLETIONS='/Users/dan/.bash_completion.d/test-kitchen/kitchen-completion.bash'
