@@ -136,7 +136,7 @@ fi
 unset PACKER_COMPLETIONS
 
 # kubectl command completions
-if [ "x$(command -v kubectl)" != "x" ]; then
+if command -v kubectl &>/dev/null; then
     source <(kubectl completion bash)
 fi
 
