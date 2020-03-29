@@ -159,13 +159,13 @@ fi
 # Use enhancements built around less; See lesspipe(1)
 export LESSOPEN='| /opt/local/bin/lesspipe.sh %s'
 
-# Use ssh-agent if for per-session caching of ssh keys
-if ! pgrep -u $USER ssh-agent > /dev/null; then
-    # Start the agent, simultaneously setting required env vars from the
-    # start up output of the ssh-agent command. grep out the annoying echo
-    # of the ssh-agent pid
-    eval "$(ssh-agent -s | grep -v echo)"
+# Use gpg-agent for per-session caching of ssh keys
+unset SSH_AGENT_PID
+if [ "${gnupg_SSH_AUTH_SOCK_by:-0}" -ne $$ ]; then
+    export SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
 fi
+# Start the agent
+gpg-connect-agent /bye &>/dev/null
 
 # Set the preferred provider for Vagrant
 if [ -d "/Applications/VMware Fusion.app/" ]; then
