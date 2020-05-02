@@ -81,11 +81,6 @@ if [ -d ${GEMSDIR} ]; then
 fi
 unset BASEDIR RUBYLATEST GEMSDIR UTILS UTIL UTILDIR MANDIR MANLIST
 
-# Bash rc file
-if [ -f ~/.bashrc ]; then
-    . ~/.bashrc
-fi
-
 # Set GoPath and add Go bin directory to path
 export GOPATH=$HOME/working/go
 export PATH=$PATH:$GOPATH/bin
@@ -93,4 +88,9 @@ export PATH=$PATH:$GOPATH/bin
 # Update PATH for the Google Cloud SDK.
 if [ -f '/Users/dan/.google-cloud-sdk/path.bash.inc' ]; then
     source '/Users/dan/.google-cloud-sdk/path.bash.inc';
+fi
+
+# Bash rc file
+if [ -f ~/.bashrc ]; then
+    . ~/.bashrc
 fi
