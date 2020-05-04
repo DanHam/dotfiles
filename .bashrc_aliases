@@ -38,3 +38,11 @@ alias ssh='gpg-connect-agent updatestartuptty /bye &>/dev/null && ssh'
 alias sudo='A=`alias` sudo '
 alias tree='tree -AC'
 alias valgrind='valgrind --track-origins=yes'
+
+# Completions for aliases
+if type -t __start_kubectl &>/dev/null; then
+    complete -F __start_kubectl k
+fi
+if type -t __start_helm &>/dev/null; then
+    complete -F __start_helm h
+fi
