@@ -46,11 +46,6 @@ if [ "$TERM" != "dumb" ]; then
     eval $(dircolors -b $HOME/.dircolors)
 fi
 
-# Import Aliases
-if [ -f ~/.bashrc_aliases ]; then
-    . ~/.bashrc_aliases
-fi
-
 # Bash Completion
 if [ -f /opt/local/etc/profile.d/bash_completion.sh ]; then
     . /opt/local/etc/profile.d/bash_completion.sh
@@ -174,6 +169,13 @@ fi
 if [ -e "$HOME/.rbenv/bin/rbenv" ]; then
     eval "$($HOME/.rbenv/bin/rbenv init -)"
 fi
+
+
+# Import Aliases
+if [ -f ~/.bashrc_aliases ]; then
+    . ~/.bashrc_aliases
+fi
+
 
 # Functions
 
