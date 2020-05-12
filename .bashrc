@@ -100,7 +100,7 @@ unset TMUX_COMPLETIONS
 
 # Ansible completions
 # https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html#shell-completion
-PYTHON_ARGCOMPLETE_SCRIPT='/Users/dan/.bash_completion.d/ansible/python-argcomplete.sh'
+PYTHON_ARGCOMPLETE_SCRIPT='/Users/dan/.bash_completion.d/ansible/python-argcomplete'
 if [ -f ${PYTHON_ARGCOMPLETE_SCRIPT} ]; then
     source ${PYTHON_ARGCOMPLETE_SCRIPT}
 fi
