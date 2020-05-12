@@ -135,6 +135,11 @@ if command -v kubectl &>/dev/null; then
     source <(kubectl completion bash)
 fi
 
+# helm command completions
+if command -v helm &>/dev/null; then
+    source <(helm completion bash)
+fi
+
 # Terraform
 if command -v terraform &>/dev/null; then
     complete -C "$(command -v terraform)" terraform
