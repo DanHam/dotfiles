@@ -481,8 +481,8 @@ autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=234
 "       - https://github.com/ycm-core/YouCompleteMe.git
 "       - A code completion engine for Vim
 "
-" Explicitly set the path to the Python2 interpreter
-let g:ycm_server_python_interpreter = '/opt/local/bin/python2.7'
+" Explicitly set the path to the Python3 interpreter
+let g:ycm_server_python_interpreter = '/opt/local/bin/python3.7'
 " Configure YCM to look in strings and comments for words that it should
 " offer to auto-complete. This is required for auto-completion to work
 " reasonably within Bash where variables/enviroment variables are often
