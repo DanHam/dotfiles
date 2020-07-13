@@ -124,8 +124,23 @@ endif
 " Folding
 " --------------------------------------------------------------------------
 
-if has('folding')
-    setlocal foldmethod=syntax     " Folding defined by syntax highlighting
+if has('folding') |
+    " Fix for issue with Go files and tab. See:
+    " https://github.com/govim/govim/issues/656#issuecomment-573089241
+    " https://github.com/vim/vim/issues/5454
+    " https://github.com/neoclide/coc.nvim/issues/1048
+    "
+    " For Go files the foldmethod must be set to manual or Vim errors:
+    " E967: text property info corrupted
+    " This is fixed in Vim >= 8.2.0109
+    if has("autocmd") |
+        autocmd Filetype *
+                \   if &ft == "go" |
+                \       setlocal foldmethod=manual |
+                \   else |
+                \       setlocal foldmethod=syntax |
+                \   endif
+    endif
     setlocal foldlevel=99          " Auto folding occurs for folds above num
     setlocal foldnestmax=10        " Allow this many folds within folds
     setlocal foldcolumn=2          " Display a column for folding
