@@ -367,9 +367,10 @@ EXEC 01;32
 .msg                  38;5;178
 .pgn                  38;5;178
 .rss                  38;5;178
+.toml                 38;5;178
 .xml                  38;5;178
-.yml                  38;5;178
 .yaml                 38;5;178
+.yml                  38;5;178
 # }}}
 # Word, Office, Postscript {{{2
 .doc                  38;5;111
