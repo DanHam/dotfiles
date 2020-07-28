@@ -544,6 +544,10 @@ let g:SuperTabDefaultCompletionType = '<C-n>'
 "         brackets, and so on.
 "
 
+" vim-toml
+"       - Vim syntax for TOML
+"       - https://github.com/cespare/vim-toml
+
 " --------------------------------------------------------------------------
 " Language settings
 " --------------------------------------------------------------------------
