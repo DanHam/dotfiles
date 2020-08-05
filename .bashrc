@@ -201,14 +201,3 @@ sawsup () {
         echo "Virtual env for SAWS not found or SAWS missing: ~/.venv-saws"
     fi
 }
-
-# Molecule and Ansible virtual environment
-moleculeup () {
-    if [ -e ~/.venv-molecule/bin/activate ]; then
-        source ~/.venv-molecule/bin/activate
-        # Enable pip bash completions
-        source <(pip completion --bash)
-        # Enable molecule bash completions
-        eval "$(_MOLECULE_COMPLETE=source molecule)"
-    fi
-}
