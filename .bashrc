@@ -202,15 +202,6 @@ sawsup () {
     fi
 }
 
-# Ansible virtual environment
-ansibleup () {
-    if [ -e ~/.venv-ansible/bin/activate ]; then
-        source ~/.venv-ansible/bin/activate
-        # Enable pip bash completions
-        source <(pip completion --bash)
-    fi
-}
-
 # Molecule and Ansible virtual environment
 moleculeup () {
     if [ -e ~/.venv-molecule/bin/activate ]; then
