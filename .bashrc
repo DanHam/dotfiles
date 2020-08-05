@@ -175,6 +175,10 @@ if [ -e "$HOME/.rbenv/bin/rbenv" ]; then
     eval "$($HOME/.rbenv/bin/rbenv init -)"
 fi
 
+# Set up direnv
+if command -v direnv &>/dev/null; then
+    eval "$(direnv hook bash)"
+fi
 
 # Import Aliases
 if [ -f ~/.bashrc_aliases ]; then
