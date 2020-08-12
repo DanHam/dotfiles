@@ -8,7 +8,7 @@
 [user]
     name = DanHam
     email = DanHam@users.noreply.github.com
-    signingkey = D6AA987E
+    signingKey = D6AA987E
 [credential]
     helper = /Users/dan/Library/Python/3.7/bin/pass-git-helper
     useHttpPath = true
