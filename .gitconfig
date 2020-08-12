@@ -1,29 +1,30 @@
 [color]
-	ui = auto
+    ui = auto
 [core]
-	editor = /opt/local/bin/vim
-	excludesfile = $HOME/.gitignore
+    editor = /opt/local/bin/vim
+    excludesfile = $HOME/.gitignore
 [push]
-	default = simple
+    default = simple
 [user]
-	name = DanHam
-	email = DanHam@users.noreply.github.com
-	signingkey = D6AA987E
+    name = DanHam
+    email = DanHam@users.noreply.github.com
+    signingkey = D6AA987E
 [credential]
-	helper = /Users/dan/Library/Python/3.7/bin/pass-git-helper
-	useHttpPath = true
+    helper = /Users/dan/Library/Python/3.7/bin/pass-git-helper
+    useHttpPath = true
 [alias]
-	unstage = reset HEAD --
-	last = log -1 HEAD
+    unstage = reset HEAD --
+    last = log -1 HEAD
 [status]
-	submodulesummary = 1
+    submodulesummary = 1
 [diff]
-	tool = opendiff
-[difftool "opendiff"]
-    cmd = /usr/bin/opendiff \"$LOCAL\" \"$REMOTE\" -merge \"$MERGED\" 2>/dev/null | cat
+    tool = vimdiff
+[difftool]
+    prompt = false
 [merge]
-	tool = opendiff
-[mergetool "opendiff"]
-    cmd = /usr/bin/opendiff \"$LOCAL\" \"$REMOTE\" -merge \"$MERGED\" 2>/dev/null | cat
+    tool = vimdiff
+    conflictstyle = diff3
+[mergetool]
+    prompt = false
 [pull]
-	rebase = false
+    rebase = false
