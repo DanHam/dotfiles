@@ -171,8 +171,8 @@ if [ -d "/Applications/VMware Fusion.app/" ]; then
 fi
 
 # Set up rbenv
-if [ -e "$HOME/.rbenv/bin/rbenv" ]; then
-    eval "$($HOME/.rbenv/bin/rbenv init -)"
+if command -v rbenv &>/dev/null; then
+    eval "$(rbenv init -)"
 fi
 
 # Set up direnv
