@@ -201,3 +201,10 @@ sawsup () {
         echo "Virtual env for SAWS not found or SAWS missing: ~/.venv-saws"
     fi
 }
+
+# Command line Markdown viewer
+if command -v pandoc &>/dev/null; then
+    md () {
+        pandoc -t plain "$1" | less
+    }
+fi
