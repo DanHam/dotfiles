@@ -130,9 +130,10 @@ if [ -f ${PACKER_COMPLETIONS} ]; then
 fi
 unset PACKER_COMPLETIONS
 
-# kubectl command completions
+# kubectl command completions and shortcuts
 if command -v kubectl &>/dev/null; then
     source <(kubectl completion bash)
+    export do='--dry-run=client -o yaml'
 fi
 
 # helm command completions
